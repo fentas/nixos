@@ -9,23 +9,13 @@
     fzf
 
     # cli tools
-    gcc
     clang
     lf
     htop
     git
+    gh
     fastfetch
     zellij
-    python3
-    wget
-    curl
-    bintools
-    unzip
-    zip
-    p7zip
-    unrar
-    pciutils
-    usbutils
     gtop
 
     # for steam
@@ -53,6 +43,13 @@
     gamescopeSession.enable = true;
   };
 
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/user/.steam/root/compatibilitytools.d";
+
+  };
+
   programs.gamemode.enable = true;
+
+  programs.fish.enable = true;
 
 }

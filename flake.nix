@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, aagl, ... }:
+  outputs = { self, nixpkgs, home-manager, aagl, ... }@inputs:
   let
     system = "x86_64-linux";
     
@@ -32,7 +32,7 @@
         modules = [
 	  ./hosts/sam-desktop.nix
 
-      	  { 
+      	  { # I'm still a loser.
        	    imports = [ aagl.nixosModules.default ];
        	    nix.settings = aagl.nixConfig;
        	    programs.honkers-railway-launcher.enable = true;
@@ -42,24 +42,24 @@
 	  {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
+
 	    home-manager.users.samjt = import ./users/samjt.nix;
 	  }
         ];
       };
 
-      sam-laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-	modules = [
-	  ./hosts/sam-laptop.nix
-
-	  home-manager.nixosModules.home-manager {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.samjt = import ./users/samjt.nix;
-	  }
-	];
-      };
+#      sam-laptop = nixpkgs.lib.nixosSystem {
+#        inherit system;
+#	modules = [
+#	  ./hosts/sam-laptop.nix
+#
+#	  home-manager.nixosModules.home-manager {
+#	    home-manager.useGlobalPkgs = true;
+#	    home-manager.useUserPackages = true;
+#	    home-manager.users.samjt = import ./users/samjt.nix;
+#	  }
+#	];
+#      };
     };
-
   };
 }

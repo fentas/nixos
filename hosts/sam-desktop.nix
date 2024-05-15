@@ -1,9 +1,10 @@
 # For settings specific to sam-desktop
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, modulesPath, ...}:
 
 {
   imports = [
     ./common
+    (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   networking.hostName = "sam-desktop";
