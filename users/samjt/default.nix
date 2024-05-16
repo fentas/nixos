@@ -2,7 +2,7 @@
 
 {
   imports = [
-#    ./configs/samjt
+    ./configs
   ];
 
   home.username = "samjt";

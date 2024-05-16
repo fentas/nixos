@@ -19,9 +19,14 @@
      url = "github:ezKEa/aagl-gtk-on-nix";
      inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, aagl, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     system = "x86_64-linux";
     
@@ -33,8 +38,8 @@
 	  ./hosts/sam-desktop.nix
 
       	  { # I'm still a loser.
-       	    imports = [ aagl.nixosModules.default ];
-       	    nix.settings = aagl.nixConfig;
+       	    imports = [ inputs.aagl.nixosModules.default ];
+       	    nix.settings = inputs.aagl.nixConfig;
        	    programs.honkers-railway-launcher.enable = true;
        	    programs.honkers-launcher.enable = true;
        	  }
@@ -43,7 +48,7 @@
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 
-	    home-manager.users.samjt = import ./users/samjt.nix;
+	    home-manager.users.samjt = import ./users/samjt;
 	  }
         ];
       };
@@ -56,7 +61,7 @@
 #	  home-manager.nixosModules.home-manager {
 #	    home-manager.useGlobalPkgs = true;
 #	    home-manager.useUserPackages = true;
-#	    home-manager.users.samjt = import ./users/samjt.nix;
+#	    home-manager.users.samjt = import ./users/samjt;
 #	  }
 #	];
 #      };
