@@ -125,32 +125,63 @@ have to be able to flex on the noobs and be like "bro its so easy, just use myLi
 get good enough at nix to say that haskell is easy even though i've been an ooper for like my whole life
 
 # File Tree
-i think vimjoyer/goxore has the most sensible layout. i'll do something quite similar.
-flake.nix
- - inputs
-   - nixpkgs (unstable)
-   - home-manager (unstable)
-   - aagl (unstable)
-   - nixvim?
-   - nix-colors?
-   - sops-nix?
- - outputs
-   - nixosConfigurations
-   - homeConfigurations
-
-THEY ARE CALLED HOSTS NOW, I GUESS. BACK IN MY DAY WE CALLED EM COMPUTERS. THE CONSEQUENCES OF XSERVER ON ~~MANKIND~~ LINUX USERS.
-
-Hosts directory to hold each host's separate config. For example:
-./hosts/desktop/configuration.nix 
-./hosts/laptop/configuration.nix 
-each one pulls in their own hardware-configuration.nix to keep things simple ig
-key thing is that each file here basically enables or disables different module bundles in the common directory.
-
-common directory for (theoretically) portable nix modules. idea being you can enable/disable ones at will perhaps.
-
-Same idea for home-manager users.
+i think vimjoyer/goxore has a sensible layout. i'll do something quite similar.
 
 Upon further inspection, goxore's version is complex. i guess i'm the haskell noob! clearly it's a monad (or something or other idk i dont haskell)
 
-./nixosModules/whatever for various modules. TBH, i think i'll rename this to modules/nixos and modules/home?
-Cool tricks tho to just import all files in a directory.
+UPDATE: ok so after reading the config further i realized this is ridiculous. It's a mess. And most configs you can find on the internet are!
+I don't NEED or WANT anything to do with apple. Neither do I plan on ever using Windows again on desktop (outside a virtual machine (thanks labview, matlab, multisim)).
+
+Most people have an unholy mess of software installed with home-manager or through nixos. ugh, what a mess! Here's a ground rule that I hope to not break:
+1) Software is installed and defined through a nix config module
+2) Dotfiles and configurations are performed through home-manager
+3) System-wide configurations (like sddm, hardware, or something else that makes sense) are performed thruogh nix modules.
+
+Great! As I'm the only user (for now), this isn't an issue. Adding multiple users down the line may require user-local packages, but I'm going to have to check this out more.
+Why am I doing this? Because I WANT immutability. I don't want to be able to be a non-root user and do "home-manager switch" and everything is gone. I want to sit through a
+full sudo nixos-rebuild, because then I know that I'm intentionally making changes that need to happen (also rollbacks). Home-manager dotfiles can be managed through git, or the
+old way, if I don't feel like using home-manager later. I'd like a truly *modular* system, which means I must be able to remove home-manager and still have shit installed.
+
+Also, I had a sneaking suspicion that home-manager installs packages in some user local directory as opposed to the nix store (how can it edit nix store without sudo?? on mac?? on other os??).
+I don't want to pollute my home directory, my install drive is actually quite small (500 GB). Storage upgrades are a money sink, and I just spent 1000 on new CPU and GPU.
+
+There is no such thing as a rule without exceptions. I forsee LSP servers as an exception, as they are probably easiest to install user-local (or even directory local with nix shell)
+
+So, I think my structure is going to look something like this:
+
+./flake.nix
+./hosts
+ -> desktop
+   -> configuration.nix - calls various bundles and features
+   -> hardware-configuration.nix - boot/filesystem
+ -> ./laptop
+   -> configuration.nix
+   -> hardware-configuration.nix
+./users
+ -> sam
+   -> home.nix - calls various bundles and features
+./modules - reusable, separate, redistributable config recipies
+ -> nixos (idea stolen from goxore)
+   -> bundles - prebuilt recipies
+     -> desktop.nix (example) - has every feature I'd want in a desktop.
+   -> features - individual program configurations
+     -> plasma5.nix (example) - has all options needed for a plasma5 setup.
+     -> gnome.nix (example) - has all options needed for a gnome setup.
+   -> default.nix (auto-import modules, extend with an enabler)
+ -> home-manager
+   -> bundles - prebuilt combinations
+     -> gaming (example) - has all configs needed for a gaming user
+     -> coding (example) - enables my neovim config and installs some LSP?
+   -> features - individual program configurations
+     -> neovim.nix (example) - has my nixvim config
+   -> default.nix (auto-import modules, extend with an enabler)
+
+This way, if I wanted to add a new computer, I can just select what bundles and features it needs.
+Also, if I want a new user, I can do the same.
+
+I wonder if I could set up my nixvim config, for example, to be buildable on its own in addition to inside the config?
+Allow for some rapid prototyping? I'll have to research nix build.
+
+I plan on using home-manager as a nixos module, rather than standalone. From goxore's config, it appears that you can essentially define both.
+In your flake.nix, have homeManagerConfigurations reference your home.nix
+In your nixosConfigurations.(system).modules, have home-manager.home-manager (or whatever it is) also reference your home.nix

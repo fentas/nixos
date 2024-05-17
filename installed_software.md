@@ -48,7 +48,7 @@ Columns: Name, Priority (lower number = higher priority), System or User, Module
 Using the guidelines listed above, should this package be available system wide?
 
 ### Module
-Whether or not a `programs.${program_name}.enable` exists. If yes and I want to use it, then YES. If not, then NO!
+Whether or not a `programs.${program_name}.enable` exists. If yes and I want to use it, then YES. If none exists, then NO!
 If it exists but I don't think its required (or home-manager does it better), then EH!
 If home-manager does it better then HM
 If I should probably install with a nixos module but configure with HM, then Y&HM.
@@ -121,74 +121,73 @@ What follows is the start of a list of "discovery" packages. Things I've never u
 
 | Name          | P | Scope? | Notes                                | Module |
 |---------------|---|--------|--------------------------------------|--------|
-| youtube-music | X |        |                                      |        |
-| tdesktop      | X |        |                                      |        |
-| feh           | X |        |                                      |        |
-| noisetorch    | X |        |                                      |        |
-| polkit        | X |        |                                      |        |
+| youtube-music | X |        | I don't use youtube music.           |        |
+| tdesktop      | X |        | I'm not a telegram user              |        |
+| feh           | X |        | image viewer. kde has one right?     |        |
+| noisetorch    | X |        | noise filter for pipewire!           |        |
+| polkit        | X |        | Why explicitly install this?         |        |
 | polkit gnome  | X |        |                                      |        |
-| lxsession     | X |        |                                      |        |
-| pulsemixer    | X |        |                                      |        |
-| pavucontrol   | X |        |                                      |        |
-| adwaita-qt    | X |        |                                      |        |
-| pcmanfm       | X |        |                                      |        |
-| libnotify     | X |        |                                      |        |
-| pywal         | X |        |                                      |        |
-| neovide       | X |        |                                      |        |
-| ripdrag       | X |        |                                      |        |
-| mpv           | X |        |                                      |        |
-| sxiv          | X |        |                                      |        |
-| zathura       | X |        |                                      |        |
-| lm sensors    | X |        |                                      |        |
-| upower        | X |        |                                      |        |
-| cm unicode    | X |        |                                      |        |
-| virt-manager  | X |        |                                      |        |
-| wezterm       | X |        |                                      |        |
-| onlyoffice-bin| X |        |                                      |        |
-| easyeffects   | X |        |                                      |        |
-| gegl          | X |        |                                      |        |
-| lutris        | X |        |                                      |        |
-| protonup-ng   | X |        |                                      |        |
-| dxvk          | X |        |                                      |        |
-| r2modman      | X |        |                                      |        |
-| heroic        | X |        |                                      |        |
-| nil           | X |        |                                      |        |
-| pistol        | X |        |                                      |        |
-| file          | X |        |                                      |        |
-| stow          | X |        |                                      |        |
-| imagemagick   | X |        |                                      |        |
-| killall       | X |        |                                      |        |
-| eza           | X |        |                                      |        |
-| zoxide        | X |        |                                      |        |
-| du-dust       | X |        |                                      |        |
-| ffmpeg        | X |        |                                      |        |
-| yt-dlp        | X |        |                                      |        |
-| tree-sitter   | X |        |                                      |        |
-| nh            | X |        |                                      |        |
-| lazygit       | X |        |                                      |        |
-| bat           | X |        |                                      |        |
-| imv           | X |        |                                      |        |
-| sxhkd         | X |        |                                      |        |
-| xorg.xev      | X |        |                                      |        |
-| .xbacklight   | X |        |                                      |        |
-| .xhost        | X |        |                                      |        |
-| maim          | X |        |                                      |        |
-| xdotool       | X |        |                                      |        |
-| devour        | X |        |                                      |        |
-| ueberzug      | X |        |                                      |        |
-| picom-jonaburg| X |        |                                      |        |
-| zsh           | X |        |                                      |        |
-| pimg          | X |        |                                      |        |
-| ctpv          | X |        |                                      |        |
-| yazi          | X |        |                                      |        |
-| direnv        | X |        |                                      |        |
-| stylix        | X |        |                                      | FLAKE  |
-| rofi          | X |        |                                      |        |
-| chromium      | X |        |                                      |        |
-| vesktop       | X |        |                                      |        |
-| rbw           | X |        |                                      |        |
-| tenacity      | X |        |                                      |        |
-| bottom        | X |        |                                      |        |
+| lxsession     | X |        | i don't run lxde                     |        |
+| pulsemixer    | X |        | im running pipewire now              |        |
+| pavucontrol   | X |        | im running pipewire now              |        |
+| adwaita-qt    | X |        | UNMAINTAINED                         |        |
+| pcmanfm       | X |        | i'm using dolphin since kde          |        |
+| libnotify     | X |        | wayland notification daemon          |        |
+| pywal         | X |        | similar to lutgen? also archived     |        |
+| neovide       | X |        | GUI wrapper for neovim               |        |
+| ripdrag       | X |        | drag/drop files in terminal          |        |
+| mpv           | X |        | video player                         |        |
+| sxiv          | X |        | image viewer.                        |        |
+| zathura       | X |        | document viewer. okular?             |        |
+| lm sensors    | X |        | monitor hardware sensors. kde?       |        |
+| upower        | X |        | battery and power status             |        |
+| cm unicode    | X |        | computer modern unicode fonts        |        |
+| virt-manager  | X |        | virtual machine manager              |        |
+| wezterm       | X |        | terminal, lua config, feature rich   |        |
+| onlyoffice-bin| X |        | most hotly debated topic of forever  |        |
+| easyeffects   | X |        | audio effects for pipewire           |        |
+| gegl          | X |        | data-flow based imaging processing.  |        |
+| lutris        | X |        | unified games launcher               |        |
+| protonup-ng   | X |        | CLI-only version of protonup (-qt)   |        |
+| dxvk          | X |        | directx-to-vulkan layer              |        |
+| r2modman      | X |        | simple mod manager for a few games   |        |
+| heroic        | X |        | substitute for epic games launcher   |        |
+| nil           | X |        | nix LSP                              |        |
+| pistol        | X |        | better TUI file previewer            |        |
+| file          | X |        | shows type of files (MIME?)          |        |
+| stow          | X |        | for managing dotfiles                |        |
+| imagemagick   | X |        | image processing commands            |        |
+| killall       | X |        | kills a process given name           |        |
+| eza           | X |        | ls replacement (looks nice)          |        |
+| zoxide        | X |        | cd replacement (bruh what??)         |        |
+| du-dust       | X |        | du sub (like gdu, ncdu, etc)         |        |
+| ffmpeg        | X |        | the holy grail of audio/video        |        |
+| yt-dlp        | X |        | TUI video downloader                 |        |
+| tree-sitter   | X |        | tree-sitter-cli for neovim           |        |
+| nh            | X |        | nix-helper, uses nom and nvd         |        |
+| lazygit       | X |        | my fav git front end                 |        |
+| bat           | X |        | cat replacement with syntax highlight|        |
+| imv           | X |        | image viewer                         |        |
+| sxhkd         | X |        | x hotkeys                            |        |
+| xorg.xev      | X |        | x event log                          |        |
+| .xbacklight   | X |        | adjust backlight brightness          |        |
+| .xhost        | X |        | add allowed users to x server        |        |
+| maim          | X |        | screenshot (kde: spectacle)          |        |
+| xdotool       | X |        | mouse jiggler?                       |        |
+| devour        | X |        | hides current window and launches    |        |
+| ueberzug      | X |        | display images in terminal           |        |
+| picom-jonaburg| X |        | lightweight X compositor             |        |
+| zsh           | X |        | the ZSH shell                        |        |
+| ctpv          | X |        | terminal file previewer              |        |
+| yazi          | X |        | terminal file manager                |        |
+| direnv        | X |        | run commands upon CD                 |        |
+| stylix        | X |        | auto color themes                    | FLAKE  |
+| rofi          | X |        | window switcher                      |        |
+| chromium      | X |        | browser                              |        |
+| vesktop       | X |        | Vencord discord mod (alt client)     |        |
+| rbw           | X |        | unnoficial bitwarden client          |        |
+| tenacity      | X |        | sound editor (like audacity?)        |        |
+| bottom        | X |        | like top/htop/gtop/btop/etc          |        |
 
 ### From EmergentMind/nix-config
 
