@@ -141,8 +141,8 @@ flake.nix
 THEY ARE CALLED HOSTS NOW, I GUESS. BACK IN MY DAY WE CALLED EM COMPUTERS. THE CONSEQUENCES OF XSERVER ON ~~MANKIND~~ LINUX USERS.
 
 Hosts directory to hold each host's separate config. For example:
-./hosts/sam-desktop/configuration.nix (maybe i change this to just 'desktop' and 'laptop' now?)
-./hosts/sam-laptop/configuration.nix (yeah, samjt@sam-laptop is too many sams.)
+./hosts/desktop/configuration.nix 
+./hosts/laptop/configuration.nix 
 each one pulls in their own hardware-configuration.nix to keep things simple ig
 key thing is that each file here basically enables or disables different module bundles in the common directory.
 
