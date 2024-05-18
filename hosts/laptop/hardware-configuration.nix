@@ -4,17 +4,18 @@
 
   boot = {
     initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-    initrd.kernelModules = [ "kvm-intel" ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b88b16f7-fb9b-4ee6-8473-fbb594e71919";
+    { device = "/dev/disk/by-uuid/c4d9c5c0-5c03-4917-9844-5296b74d274f";
       fsType = "ext4";
     };
 
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/E01A/95CF";
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/1FE4-02AB";
       fsType = "vfat";
     };
 
