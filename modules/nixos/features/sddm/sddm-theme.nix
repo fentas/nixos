@@ -2,8 +2,8 @@
   image = ./wallpaper.png;
 in
 {
-  pkgs.stdenv.mkDerivation {
-    name "sddm-theme";
+  pkgs.stdenv.mkDerivation = {
+    name = "sddm-theme";
 
     src = pkgs.fetchFromGithub {
       owner = "MarianArlt";
@@ -19,6 +19,6 @@ in
       rm Background.jpg
       cp -r ${image} $out/Background.jpg
     '';
-  }
+  };
 }
   

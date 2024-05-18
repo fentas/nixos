@@ -6,14 +6,14 @@
     bundles.default-software.enable = lib.mkDefault true;
     bundles.desktop-software.enable = lib.mkDefault true;
 
-    sound.enable = lib.mkDefault true;
+    pipewire.enable = lib.mkDefault true;
     networking.enable = lib.mkDefault true;
   };
 
 
 
   fonts.packages = with pkgs; [
-    (pkgs.nerdfonts.override {fonts = ["JetBrainsMono" "Cascadia Code" "Fira Code"];})
+    (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];})
     corefonts
     cm_unicode
   ];

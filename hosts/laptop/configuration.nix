@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ...  }:
+{ ... }:
 
 {
   imports = [
@@ -9,7 +9,7 @@
 
   myNixOS = {
     bundles.plasma-desktop.enable = true;
-    bundle.users.enable = true;
+    bundles.users.enable = true;
 
     grub.enable = true;
     steam.enable = true;
@@ -17,6 +17,15 @@
     locale.enable = true;
     nvidiagpu.enable = true;
     amdgpu.enable = false;
+
+    home-users = {
+      sam = {
+        userConfig = ../../users/sam/home.nix;
+        userSettings = {
+          extraGroups = ["networkmanager" "wheel"];
+        };
+      };
+    };
   };
 
   system.stateVersion = "23.11";

@@ -1,5 +1,5 @@
 # For settings specific to desktop
-{ config, pkgs, lib, inputs, outputs, system, mylib, ...}:
+{ ... }:
 
 {
   imports = [
@@ -10,7 +10,7 @@
 
   myNixOS = {
     bundles.plasma-desktop.enable = true;
-    bundle.users.enable = true;
+    bundles.users.enable = true;
 
     amdgpu.enable = true;
     nvidiagpu.enable = false;
@@ -19,6 +19,15 @@
     nix.enable = true;
     locale.enable = true;
     aagl.enable = true;
+
+    home-users = {
+      sam = {
+        userConfig = ../../users/sam/home.nix;
+        userSettings = {
+          extraGroups = ["networkmanager" "wheel"];
+        };
+      };
+    };
 
   };
 

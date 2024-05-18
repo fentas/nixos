@@ -1,20 +1,56 @@
-{config, pkgs, inputs, ... }:
 {
-  users.users = {
-    sam = {
-      isNormalUser = true;
-      description = "Sam T";
-      extraGroups = [ "networkmanager" "wheel" ];
-    };
+  lib,
+  config,
+  inputs,
+  outputs,
+  mylib,
+  ...
+}:
+{
+  options.myNixOS.home-users = lib.mkOption {
+    type = lib.types.attrsOf (lib.types.submodule {
+      options = {
+        userConfig = lib.mkOption {
+          default = ../../../users/sam/home.nix;
+        };
+        userSettings = lib.mkOption {
+          default = {};
+        };
+      };
+    });
+    default = {};
   };
 
+  config = {
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
 
-  inputs.home-manager.nixosModules.home-manager = {
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
+      extraSpecialArgs = {
+        inherit inputs;
+        inherit mylib;
+        outputs = inputs.self.outputs;
+      };
 
-    home-manager.users = {
-      sam = import ../../../users/sam/home.nix;
+      users =
+        builtins.mapAttrs (name: user: {...}: {
+          imports = [
+            (import user.userConfig)
+            outputs.homeManagerModules.default
+          ];
+        })
+        (config.myNixOS.home-users);
     };
+
+    users.users = builtins.mapAttrs (
+      name: user:
+        {
+          isNormalUser = true;
+          initialPassword = "12345";
+          description = "";
+          extraGroups = ["networkmanager" "wheel"];
+        }
+        // user.userSettings
+    ) (config.myNixOS.home-users);
   };
 }

@@ -1,11 +1,11 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     onlyoffice-bin_latest
     krita
     gimp
     inkscape
-    danvinci-resolve
+    davinci-resolve
     kicad
     qalculate-qt
     mpv

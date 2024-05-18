@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
 
@@ -46,7 +46,6 @@
 
   programs.nh = {
     enable = true;
-    flake = "";
   };
 
   programs.tmux = {

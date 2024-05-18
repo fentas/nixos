@@ -1,4 +1,4 @@
-{ inputs, outputs, pkgs, lib, ... }:
+{ outputs, lib, ... }:
 {
   imports = [outputs.homeManagerModules.default];
 
@@ -6,7 +6,9 @@
   programs.git.userEmail = "samjt36@gmail.com";
 
   myHomeManager = {
-   alacritty.enable = true;
+    bundles.general.enable = true;
+
+    alacritty.enable = true;
   };
 
 
