@@ -1,21 +1,14 @@
-# For settings specific to sam-desktop
-{ config, pkgs, lib, modulesPath, ...}:
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [
-    ./common
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
-
-  networking.hostName = "sam-desktop";
-
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix")];
 
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "nvme"];
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "kvm-amd" "wl" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  boot = {
+    initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "nvme"];
+    initrd.kernelModules = [ "kvm-amd" "wl" ];
+    extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/SSD";
@@ -40,8 +33,6 @@
   swapDevices =
     [ { device = "/dev/disk/by-label/swap"; }
     ];
-
-  networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

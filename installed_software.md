@@ -121,121 +121,206 @@ What follows is the start of a list of "discovery" packages. Things I've never u
 
 | Name          | P | Scope? | Notes                                | Module |
 |---------------|---|--------|--------------------------------------|--------|
-| youtube-music | X |        | I don't use youtube music.           |        |
-| tdesktop      | X |        | I'm not a telegram user              |        |
-| feh           | X |        | image viewer. kde has one right?     |        |
-| noisetorch    | X |        | noise filter for pipewire!           |        |
-| polkit        | X |        | Why explicitly install this?         |        |
-| polkit gnome  | X |        |                                      |        |
-| lxsession     | X |        | i don't run lxde                     |        |
-| pulsemixer    | X |        | im running pipewire now              |        |
-| pavucontrol   | X |        | im running pipewire now              |        |
-| adwaita-qt    | X |        | UNMAINTAINED                         |        |
-| pcmanfm       | X |        | i'm using dolphin since kde          |        |
-| libnotify     | X |        | wayland notification daemon          |        |
-| pywal         | X |        | similar to lutgen? also archived     |        |
-| neovide       | X |        | GUI wrapper for neovim               |        |
-| ripdrag       | X |        | drag/drop files in terminal          |        |
-| mpv           | X |        | video player                         |        |
-| sxiv          | X |        | image viewer.                        |        |
-| zathura       | X |        | document viewer. okular?             |        |
-| lm sensors    | X |        | monitor hardware sensors. kde?       |        |
-| upower        | X |        | battery and power status             |        |
-| cm unicode    | X |        | computer modern unicode fonts        |        |
-| virt-manager  | X |        | virtual machine manager              |        |
-| wezterm       | X |        | terminal, lua config, feature rich   |        |
-| onlyoffice-bin| X |        | most hotly debated topic of forever  |        |
-| easyeffects   | X |        | audio effects for pipewire           |        |
-| gegl          | X |        | data-flow based imaging processing.  |        |
-| lutris        | X |        | unified games launcher               |        |
-| protonup-ng   | X |        | CLI-only version of protonup (-qt)   |        |
-| dxvk          | X |        | directx-to-vulkan layer              |        |
-| r2modman      | X |        | simple mod manager for a few games   |        |
-| heroic        | X |        | substitute for epic games launcher   |        |
-| nil           | X |        | nix LSP                              |        |
-| pistol        | X |        | better TUI file previewer            |        |
-| file          | X |        | shows type of files (MIME?)          |        |
-| stow          | X |        | for managing dotfiles                |        |
-| imagemagick   | X |        | image processing commands            |        |
-| killall       | X |        | kills a process given name           |        |
-| eza           | X |        | ls replacement (looks nice)          |        |
-| zoxide        | X |        | cd replacement (bruh what??)         |        |
-| du-dust       | X |        | du sub (like gdu, ncdu, etc)         |        |
-| ffmpeg        | X |        | the holy grail of audio/video        |        |
-| yt-dlp        | X |        | TUI video downloader                 |        |
-| tree-sitter   | X |        | tree-sitter-cli for neovim           |        |
-| nh            | X |        | nix-helper, uses nom and nvd         |        |
-| lazygit       | X |        | my fav git front end                 |        |
-| bat           | X |        | cat replacement with syntax highlight|        |
-| imv           | X |        | image viewer                         |        |
-| sxhkd         | X |        | x hotkeys                            |        |
+| youtube-music | X |        | I don't use youtube music.           | NO!    |
+| tdesktop      | X |        | I'm not a telegram user              | NO!    |
+| feh           | X |        | image viewer. kde has one right?     | NO!    |
+| noisetorch    | X |        | noise filter for pipewire!           | YES    |
+| polkit        | X |        | Why explicitly install this?         | YES    |
+| lxsession     | X |        | i don't run lxde                     | NO!    |
+| pulsemixer    | X |        | im running pipewire now              | NO!    |
+| pavucontrol   | X |        | im running pipewire now              | NO!    |
+| adwaita-qt    | X |        | UNMAINTAINED use qt.style option     | tech   |
+| pcmanfm       | X |        | i'm using dolphin since kde          | NO!    |
+| libnotify     | X |        | wayland notification daemon          | NO!    |
+| pywal         | X |        | similar to lutgen? also archived     | HM EH  |
+| neovide       | X |        | GUI wrapper for neovim               | NO!    |
+| ripdrag       | X |        | drag/drop files in terminal          | NO!    |
+| mpv           | X |        | video player                         | HM     |
+| sxiv          | X |        | image viewer.                        | NO!    |
+| zathura       | X |        | document viewer. okular?             | HM     |
+| lm sensors    | X |        | monitor hardware sensors. kde?       | NO!    |
+| upower        | X |        | battery and power status             | YES    |
+| cm unicode    | X |        | computer modern unicode fonts        | NO!    |
+| virt-manager  | X |        | virtual machine manager              | YES    |
+| wezterm       | X |        | terminal, lua config, feature rich   | HM     |
+| onlyoffice-bin| X |        | most hotly debated topic of forever  | YES    |
+| easyeffects   | X |        | audio effects for pipewire           | HM     |
+| gegl          | X |        | data-flow based imaging processing.  | NO!    |
+| lutris        | X |        | unified games launcher               | NO!    |
+| protonup-ng   | X |        | CLI-only version of protonup (-qt)   | NO!    |
+| dxvk          | X |        | directx-to-vulkan layer              | NO!    |
+| r2modman      | X |        | simple mod manager for a few games   | NO!    |
+| heroic        | X |        | substitute for epic games launcher   | NO!    |
+| nil           | X |        | nix LSP                              | NO!    |
+| pistol        | X |        | better TUI file previewer            | HM     |
+| file          | X |        | shows type of files (MIME?)          | NO!    |
+| stow          | X |        | for managing dotfiles                | NO!    |
+| imagemagick   | X |        | image processing commands            | NO!    |
+| killall       | X |        | kills a process given name           | NO!    |
+| eza           | X |        | ls replacement (looks nice)          | HM     |
+| zoxide        | X |        | cd replacement (bruh what??)         | HM     |
+| du-dust       | X |        | du sub (like gdu, ncdu, etc)         | NO!    |
+| ffmpeg        | X |        | the holy grail of audio/video        | NO!    |
+| yt-dlp        | X |        | TUI video downloader                 | NO!    |
+| tree-sitter   | X |        | tree-sitter-cli for neovim           | NO!    |
+| nh            | X |        | nix-helper, uses nom and nvd         | YES    |
+| lazygit       | X |        | my fav git front end                 | YES HM |
+| bat           | X |        | cat replacement with syntax highlight| HM     |
+| imv           | X |        | image viewer                         | HM     |
+| sxhkd         | X |        | x hotkeys                            | YES HM |
 | xorg.xev      | X |        | x event log                          |        |
 | .xbacklight   | X |        | adjust backlight brightness          |        |
 | .xhost        | X |        | add allowed users to x server        |        |
-| maim          | X |        | screenshot (kde: spectacle)          |        |
-| xdotool       | X |        | mouse jiggler?                       |        |
-| devour        | X |        | hides current window and launches    |        |
-| ueberzug      | X |        | display images in terminal           |        |
-| picom-jonaburg| X |        | lightweight X compositor             |        |
-| zsh           | X |        | the ZSH shell                        |        |
-| ctpv          | X |        | terminal file previewer              |        |
-| yazi          | X |        | terminal file manager                |        |
-| direnv        | X |        | run commands upon CD                 |        |
+| maim          | X |        | screenshot (kde: spectacle)          | NO!    |
+| xdotool       | X |        | mouse jiggler?                       | NO!    |
+| devour        | X |        | hides current window and launches    | NO!    |
+| ueberzug      | X |        | display images in terminal           | NO!    |
+| picom-jonaburg| X |        | lightweight X compositor             | YES HM |
+| zsh           | X |        | the ZSH shell                        | YES HM |
+| ctpv          | X |        | terminal file previewer              | NO!    |
+| yazi          | X |        | terminal file manager                | YES HM |
+| direnv        | X |        | run commands upon CD                 | YES HM |
 | stylix        | X |        | auto color themes                    | FLAKE  |
-| rofi          | X |        | window switcher                      |        |
-| chromium      | X |        | browser                              |        |
-| vesktop       | X |        | Vencord discord mod (alt client)     |        |
-| rbw           | X |        | unnoficial bitwarden client          |        |
-| tenacity      | X |        | sound editor (like audacity?)        |        |
-| bottom        | X |        | like top/htop/gtop/btop/etc          |        |
+| rofi          | X |        | window switcher                      | idk    |
+| chromium      | X |        | browser                              | YES    |
+| vesktop       | X |        | Vencord discord mod (alt client)     | NO!    |
+| rbw           | X |        | unnoficial bitwarden client          | HM     |
+| tenacity      | X |        | sound editor (like audacity?)        | NO     |
+| bottom        | X |        | like top/htop/gtop/btop/etc          | HM     |
 
 ### From EmergentMind/nix-config
 
 | Name          | P | Scope? | Notes                                | Module |
 |---------------|---|--------|--------------------------------------|--------|
-| remmina       | X |        |                                      |        |
-| draw.io       | X |        |                                      |        |
-| inkscape      | X |        |                                      |        |
-| rpi-imager    | X |        |                                      |        |
-| etcher        | X |        |                                      |        |
+| remmina       | X |        | remote desktop client (GTK)          | YES    |
+| inkscape      | X |        | vector graphics editor               | YES    |
+| rpi-imager    | X |        | raspberry pi imaging utility         | NO!    |
+| etcher        | X |        | ISO flasher                          | NO!    |
 
 ### From wiltaylor/dotfiles
 
 | Name          | P | Scope? | Notes                                | Module |
 |---------------|---|--------|--------------------------------------|--------|
-| kdenlive      | X |        |                                      |        |
-| foot          | X |        |                                      |        |
-| dfeet         | X |        |                                      |        |
-| pandoc        | X |        |                                      |        |
-| krdc          | X |        |                                      |        |
-| virtmanager   | X |        |                                      |        |
+| kdenlive      | X |        | video editor (KDE)                   | NO!    |
+| foot          | X |        | wayland terminal emulator            |        |
+| pandoc        | X |        | document converter                   | HM     |
+| krdc          | X |        | remote desktop client (KDE)          | NO!    |
 
 ### From librephoenix/nixos-config
 
 | Name          | P | Scope? | Notes                                | Module |
 |---------------|---|--------|--------------------------------------|--------|
-| qutebrowser   | X |        |                                      |        |
-| libreoffice   | X |        | -fresh                               |        |
-| mate.atril    | X |        |                                      |        |
-| openboard     | X |        |                                      |        |
-| xournalpp     | X |        |                                      |        |
-| newsflash     | X |        |                                      |        |
-| foliate       | X |        |                                      |        |
-| texliveSmall  | X |        |                                      |        |
-| numbat        | X |        |                                      |        |
-| krita         | X |        |                                      |        |
-| pinta         | X |        |                                      |        |
-| musikube      | X |        |                                      |        |
-| openscad      | X |        |                                      |        |
-| obs-studio    | X |        |                                      |        |
-| ardour        | X |        |                                      |        |
-| rosegarden    | X |        |                                      |        |
-| ventoy        | X |        |                                      |        |
-| superTuxKart  | X |        |                                      |        |
-| pegasus-front | X |        |                                      |        |
-| airshipper    | X |        |                                      |        |
-| blueman       | X |        |                                      |        |
+| qutebrowser   | X |        | keyboard focused browser (Qt)        | HM     |
+| libreoffice   | X |        | -fresh, -qt                          | NO!    |
+| mate.atril    | X |        | document viewer                      | NO!    |
+| openboard     | X |        | whiteboard application               | NO!    |
+| newsflash     | X |        | feed reader (RSS, etc)               | NO!    |
+| foliate       | X |        | GTK ebook reader                     | NO!    |
+| texliveSmall  | X |        | tex live lmaooooo                    | HM~    |
+| numbat        | X |        | calculator with units                | NO!    |
+| krita         | X |        | drawing application                  | NO!    |
+| pinta         | X |        | paint.net clone                      | NO!    |
+| musikcube     | X |        | terminal based music player          | NO!    |
+| openscad      | X |        | programmable 3d models               | NO!    |
+| obs-studio    | X |        | its obs                              | HM     |
+| ardour        | X |        | foss multi track mixer/editor        | NO!    |
+| rosegarden    | X |        | music composition / midi?            | NO!    |
+| ventoy        | X |        | bootable USB with multiple OS        | NO!    |
+| superTuxKart  | X |        | SUPER TUX KART HOLY SHIT LETS GOO    | NO!    |
+| pegasus-front | X |        | emulator/game launcher               | NO!    |
+| airshipper    | X |        | game specific to Veloren             | NO!    |
+| blueman       | X |        | bluetooth manager (GTK)              | YES    |
 
 
 ### Things I found that Could Be Cool (to format later)
  - git LFS (nixos module)
+
+
+
+# What to Install
+So, this begs the question. What software do I actually want to install? I should do this based on categories.
+
+
+## Office Suite: OnlyOffice-bin latest
+Of course, I'll need an office suite. This is hotly debated between OnlyOffice and LibreOffice.
+OnlyOffice simlply has better visuals. People say it's more Word compatible too, which is helpful since my 
+university is 100% micsrosoft.
+No config needed
+
+## Image editor: Krita and GIMP, Inkscape
+
+Next, I need some way to edit images. The classic choices are GIMP, Krita, Pinta, and some others
+TBH I don't mind installing both GIMP and Krita.
+Note: GIMP plugins can also be installed from nixpkgs!
+
+Inkscape because vector images are a whole different beast
+no config needed
+
+
+## Video Editor: Davinci Resolve
+TBH I'm not sure whether to go with DaVinci Resolve or Kdenlive. I've used DaVinci in the past, so I'll try it.
+no config needed
+
+
+## Text Editor: Neovim (and vscode)
+OK OK OK I GET IT. Sometimes vscode with a vim plugin is fine, like when dealing with arduino or much larger projects.
+Neovim is a text editor, not an IDE. As much as we can add plugins to do so, I'm sorry but the debugging/IDE experience
+provided by vscode is simply better out-of-the-box.
+
+That being said, I'll basically use neovim for pretty much everything. Would be cool to add neovide (or any other neovim gui).
+heavy config needed for both
+
+
+## Games: Steam, Lutris.
+Should be a no brainer.
+mangohud
+protonup
+protontricks
+gamescope.enable
+gamemode.enbable
+no config needed
+
+## Browser: Firefox
+DUH!
+config needed
+
+
+## Other productivity
+kicad
+qalculate-qt
+mpv
+no config needed
+
+## CLI utilities
+gtop
+htop
+fzf
+fd
+ripgrep
+git
+fastfetch
+lf
+tmux
+zellij
+pciutils
+usbutils
+gh
+eza
+zoxide
+du-dust
+nh
+nil
+alejandra
+lazygit
+bat
+various configs needd
+
+## Useful desktop stuff!
+noisetorch
+
+
+## Main shell
+I like fish. its super easy to use and customize. Zsh is cool and compliant or whatever, but like hit em with the exec bash if you need it.
+plus making a usable zsh config is harder than nixos.
+
+hm config needed

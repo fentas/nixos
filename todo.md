@@ -185,3 +185,4 @@ Allow for some rapid prototyping? I'll have to research nix build.
 I plan on using home-manager as a nixos module, rather than standalone. From goxore's config, it appears that you can essentially define both.
 In your flake.nix, have homeManagerConfigurations reference your home.nix
 In your nixosConfigurations.(system).modules, have home-manager.home-manager (or whatever it is) also reference your home.nix
+

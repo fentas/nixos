@@ -26,45 +26,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { ... } @ inputs:
   let
-    system = "x86_64-linux";
-    
-  in {
+    mylib = import ./mylib/default.nix {inherit inputs;};
+  in 
+   with mylib; {
     nixosConfigurations = {
-      sam-desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-	  ./hosts/sam-desktop.nix
-
-      	  { # I'm still a loser.
-       	    imports = [ inputs.aagl.nixosModules.default ];
-       	    nix.settings = inputs.aagl.nixConfig;
-       	    programs.honkers-railway-launcher.enable = true;
-       	    programs.honkers-launcher.enable = true;
-       	  }
-          home-manager.nixosModules.home-manager
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-
-	    home-manager.users.samjt = import ./users/samjt;
-	  }
-        ];
-      };
-
-#      sam-laptop = nixpkgs.lib.nixosSystem {
-#        inherit system;
-#	modules = [
-#	  ./hosts/sam-laptop.nix
-#
-#	  home-manager.nixosModules.home-manager {
-#	    home-manager.useGlobalPkgs = true;
-#	    home-manager.useUserPackages = true;
-#	    home-manager.users.samjt = import ./users/samjt;
-#	  }
-#	];
-#      };
+      desktop = mkSystem ./hosts/desktop/configuration.nix;
+      laptop = mkSystem ./hosts/laptop/configuration.nix;
     };
+
+    homeConfigurations = {
+      sam = mkHome "x86_64-linux" ./users/sam/home.nix;
+    };
+
+    homeManagerModules.default = ./modules/home-manager;
+    nixosModules.default = ./modules/nixos;
   };
 }
