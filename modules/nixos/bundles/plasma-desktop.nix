@@ -19,13 +19,6 @@
   ];
 
   fonts.enableDefaultPackages = true;
-  fonts.fontconfig = {
-    defaultFonts = {
-      monospace = ["JetBrainsMono Nerd Font Mono"];
-      sansSerif = ["JetBrainsMono Nerd Font"];
-      serif = ["JetBrainsMono Nerd Font"];
-    };
-  };
 
   programs.noisetorch.enable = true;
 }
