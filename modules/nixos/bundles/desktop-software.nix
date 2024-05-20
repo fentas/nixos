@@ -13,6 +13,7 @@
     neovide
     vscode
     prismlauncher
+    octaveFull
   ];
 
 }
