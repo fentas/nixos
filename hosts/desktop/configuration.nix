@@ -12,6 +12,9 @@
     bundles.plasma-desktop.enable = true;
     bundles.users.enable = true;
 
+    bundles.engineering.enable = true;
+    bundles.productivity.enable = true;
+
     amdgpu.enable = true;
     nvidiagpu.enable = false;
     grub.enable = true;

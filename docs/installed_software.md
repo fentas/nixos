@@ -324,3 +324,12 @@ I like fish. its super easy to use and customize. Zsh is cool and compliant or w
 plus making a usable zsh config is harder than nixos.
 
 hm config needed
+
+
+
+
+I likely won't maintain this list of software beyond initial reasoning. After all, another reason I want to use NixOS is to make installing new
+software dead simple: add a line/file, rebuild, forget about it. If you want to see what software I use currently, reading nix configs is a
+useful skill to develop (for me as well!). It's something I like about NixOS; the less I have to read `apt list --installed | grep manual` the better.
+
+

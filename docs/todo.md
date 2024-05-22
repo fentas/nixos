@@ -125,7 +125,7 @@ have to be able to flex on the noobs and be like "bro its so easy, just use myLi
 get good enough at nix to say that haskell is easy even though i've been an ooper for like my whole life
 
 # File Tree
-i think vimjoyer/goxore has a sensible layout. i'll do something quite similar.
+i think vimjoyer/goxore has a sensible layout. (note from later: nevermind) i'll do something quite similar.
 
 Upon further inspection, goxore's version is complex. i guess i'm the haskell noob! clearly it's a monad (or something or other idk i dont haskell)
 
@@ -142,10 +142,11 @@ Why am I doing this? Because I WANT immutability. I don't want to be able to be 
 full sudo nixos-rebuild, because then I know that I'm intentionally making changes that need to happen (also rollbacks). Home-manager dotfiles can be managed through git, or the
 old way, if I don't feel like using home-manager later. I'd like a truly *modular* system, which means I must be able to remove home-manager and still have shit installed.
 
-Also, I had a sneaking suspicion that home-manager installs packages in some user local directory as opposed to the nix store (how can it edit nix store without sudo?? on mac?? on other os??).
+~~Also, I had a sneaking suspicion that home-manager installs packages in some user local directory as opposed to the nix store (how can it edit nix store without sudo?? on mac?? on other os??).~~
+ok turns out this is likely a lie, it's just the user path symlinks to a home-manager folder which I believe eventually links to the nix store, somewhere.
 I don't want to pollute my home directory, my install drive is actually quite small (500 GB). Storage upgrades are a money sink, and I just spent 1000 on new CPU and GPU.
 
-There is no such thing as a rule without exceptions. I forsee LSP servers as an exception, as they are probably easiest to install user-local (or even directory local with nix shell)
+There is no such thing as a rule without exceptions. I forsee LSP servers as an exception.
 
 So, I think my structure is going to look something like this:
 
@@ -186,3 +187,24 @@ I plan on using home-manager as a nixos module, rather than standalone. From gox
 In your flake.nix, have homeManagerConfigurations reference your home.nix
 In your nixosConfigurations.(system).modules, have home-manager.home-manager (or whatever it is) also reference your home.nix
 
+
+### What exactly goes into a monad???
+
+So, I've broken everything down into modules. This is great. However, what goes into each module? What is a bundle, if not a feature in the
+category of endofunctors? Should bundles exclusively contain references to features? Does this even make sense?
+
+Well, this is basically arbitrary. I've basically become the maintainer of my own NixOS framework, which is both a blessing and a curse.
+The blessing being ultimate freedom; the curse being inevitable poor decisions. Therefore, some 'grand vision' design guidelines and rules
+(yes the typical whiteboard circlejerk) is required. I'm writing this down because I guarantee I'll wonder HOW and WHY i've done something a certain way.
+
+First off: I don't think EVERYTHING needs to be broken out into its own file. I do like the idea of splitting things into bundles and features tho.
+once I figured out what the difference is, at least. It's a bit silly, but I think this keeps things clean-ish.
+
+A feature is a peice of software, configuration, or both. A feature should be focused on one goal and only include settings, options, or packages required
+to get said feature to work as I want it to. A feature can be simple or complex; for example having Git on the system with some default configuration could
+be a feature, but also an entire KDE environment.
+
+A bundle, on the other hand, is a group of features, settings, or software that are related in some way. For example, I'd consider a bundle of general software
+for desktops, including a desktop environment, graphical applications, and the like. I would also consider a bundle of productivity software that I could just
+enable or disable, as I might not need a video editor (for example) on every computer. To be honest, this layer of abstraction is a bit, uhh, redundant, as
+most apps really don't need a lot of configuration. Especially graphical applications.
