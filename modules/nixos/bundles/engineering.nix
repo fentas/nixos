@@ -5,9 +5,13 @@
   environment.systemPackages = with pkgs; [
     kicad
     qalculate-qt
-    octaveFull
     qucs-s
     ngspice
+
+
+    (octaveFull.withPackages (ps: with ps; [
+      symbolic
+    ]))
   ];
 
 }

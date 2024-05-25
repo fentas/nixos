@@ -14,7 +14,6 @@
 
   fonts.packages = with pkgs; [
     (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];})
-    corefonts
     cm_unicode
   ];
 

@@ -208,3 +208,6 @@ A bundle, on the other hand, is a group of features, settings, or software that 
 for desktops, including a desktop environment, graphical applications, and the like. I would also consider a bundle of productivity software that I could just
 enable or disable, as I might not need a video editor (for example) on every computer. To be honest, this layer of abstraction is a bit, uhh, redundant, as
 most apps really don't need a lot of configuration. Especially graphical applications.
+
+
+BIG TODO: use a stable release branch for things like davinci-resolve so it doesn't have to build every time i update
