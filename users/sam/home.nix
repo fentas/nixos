@@ -9,6 +9,7 @@
     bundles.general.enable = true;
 
     alacritty.enable = true;
+    nixvim.enable = true;
   };
 
 
