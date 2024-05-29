@@ -1,17 +1,20 @@
 # Software that I use for various EE tasks
-{ pkgs, ... }:
+{ pkgs, pkgs-stable, ... }:
+let 
+  stable-pkgs = with pkgs-stable; [
+    kicad
+  ];
+in
 {
 
-  environment.systemPackages = with pkgs; [
-    kicad
+  environment.systemPackages = with pkgs;[
     qalculate-qt
     qucs-s
     ngspice
 
-
     (octaveFull.withPackages (ps: with ps; [
       symbolic
     ]))
-  ];
+  ] ++ stable-pkgs;
 
 }
