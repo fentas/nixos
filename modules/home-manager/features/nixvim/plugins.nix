@@ -179,5 +179,6 @@
     intellitab = {
       enable = true;
     };
+
   };
 }

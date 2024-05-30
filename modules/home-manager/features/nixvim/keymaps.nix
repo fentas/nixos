@@ -320,7 +320,7 @@
         };
       }
       {
-        mode = "n";
+        mode = ["n" "t"];
         key = "<A-i>";
         action = "<cmd>ToggleTerm direction=float<CR>";
         options = {
@@ -328,11 +328,19 @@
         };
       }
       {
-        mode = "n";
+        mode = ["n" "t"];
         key = "<A-h>";
         action = "<cmd>ToggleTerm direction=horizontal<CR>";
         options = {
           desc = "Float Terminal";
+        };
+      }
+      {
+        mode = "i";
+        key = "<Tab>";
+        action.__raw = "function() require('intellitab').indent() end";
+        options = {
+          silent = true;
         };
       }
     ];
