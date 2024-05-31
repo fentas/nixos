@@ -7,6 +7,8 @@
     neovide
     vscode
     prismlauncher
+
+    thunderbird
   ];
 
 }
