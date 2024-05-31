@@ -10,6 +10,7 @@
   myNixOS = {
     bundles.plasma-desktop.enable = true;
     bundles.users.enable = true;
+    bundles.engineering.enable = true;
 
     grub.enable = true;
     steam.enable = true;
@@ -23,6 +24,7 @@
         userConfig = ../../users/sam/home.nix;
         userSettings = {
           extraGroups = ["networkmanager" "wheel"];
+          description = "Sam T";
         };
       };
     };

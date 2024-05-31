@@ -28,6 +28,7 @@
         userConfig = ../../users/sam/home.nix;
         userSettings = {
           extraGroups = ["networkmanager" "wheel"];
+          description = "Sam T";
         };
       };
     };
