@@ -174,11 +174,7 @@
 
     lualine = {
       enable = true;
+      extensions = [ "nvim-tree" "toggleterm" "trouble" "quickfix"];
     };
-
-    intellitab = {
-      enable = true;
-    };
-
   };
 }

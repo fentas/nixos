@@ -34,8 +34,8 @@
       list = true;
       listchars = {
         tab = "» ";
-	trail = "·";
-	nbsp = "␣";
+        trail = "·";
+        nbsp = "␣";
       };
       fillchars = "eob: ";
 
@@ -59,6 +59,9 @@
 
       # Now default in nvim 10.0!
       termguicolors = true;
+
+      # for neovide!
+      guifont = "JetBrainsMono NF:h12";
 
     };
   };

@@ -335,14 +335,6 @@
           desc = "Float Terminal";
         };
       }
-      {
-        mode = "i";
-        key = "<Tab>";
-        action.__raw = "function() require('intellitab').indent() end";
-        options = {
-          silent = true;
-        };
-      }
     ];
   };
 }
