@@ -1,12 +1,12 @@
 { lib, pkgs, ... }:
 let
-  sddmTheme = import ./sddm-theme.nix {inherit pkgs;};
+#  sddmTheme = import ./sddm-theme.nix {inherit pkgs;};
 in 
 {
   services.xserver.enable = true;
   services.displayManager.sddm = {
     enable = lib.mkDefault true;
-#   sddm.theme = "${sddmTheme}";
+    theme = "breeze";
     wayland.enable = true;
   };
 
