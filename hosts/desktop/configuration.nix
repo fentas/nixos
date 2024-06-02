@@ -23,6 +23,8 @@
     locale.enable = true;
     aagl.enable = true;
 
+    matlab.enable = true;
+
     home-users = {
       sam = {
         userConfig = ../../users/sam/home.nix;

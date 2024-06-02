@@ -74,8 +74,8 @@ If I should probably install with a nixos module but configure with HM, then Y&H
 | protonup      | 0 | System | It's a gaming computer.              | NO!    |
 | steam         | 0 | System | It's a gaming computer.              | YES    |
 | gamescope     | 0 | System | It's a gaming computer.              | YES    |
-| neovim        | 0 | System | Default editor.                      | YES    |
-| discord       | 2 | User   | Peice of shit software.              | nixvim |
+| neovim        | 0 | System | Default editor.                      | nixvim |
+| discord       | 2 | User   | Peice of shit software.              | no     |
 | prismlauncher | 2 | User   | Minecraft.                           | NO!    |
 | vscode        | 1 | System | Alternate Editor                     | HM     |
 | lf            | 0 | System | File Explorer                        | HM     |

@@ -2,7 +2,7 @@
 {
 
   services.xserver = {
-    enable = lib.mkDefault true;
+    # enable = lib.mkDefault true;
 
     xkb = {
       layout = lib.mkDefault "us";
@@ -16,5 +16,5 @@
     usbutils
   ];
 
-  services.xserver.displayManager.sddm.wayland.enable = lib.mkDefault true;
+  services.displayManager.sddm.wayland.enable = lib.mkDefault true;
 }

@@ -210,4 +210,33 @@ enable or disable, as I might not need a video editor (for example) on every com
 most apps really don't need a lot of configuration. Especially graphical applications.
 
 
-BIG TODO: use a stable release branch for things like davinci-resolve so it doesn't have to build every time i update
+BIG TODO: use a stable release branch for things like davinci-resolve so it doesn't have to build every time i update. (DONE)
+
+
+# current
+
+ok so basically the config works great and its really easy to add to. i'm not sure what to reach for next.
+
+What are some of the things that I should focus on configuring through home-manager?
+
+1) continuously tweak neovim configuration
+  a) long-term stretch goal: settle on a colorscheme
+  b) decide if said colorscheme should be applied system-wide
+
+## software I can mess with in home-manager:
+firefox
+fzf
+fd
+fastfetch
+mangohud
+vscode (eww)
+~lf~ yazi (it has icons mkay)
+zellij
+alacritty
+eza
+zoxide
+lazygit
+bat
+shell (fish or zsh?)
+ - i'm leaning towards fish bcuz its simple but it cant be the login shell idk if that's a real issue
+
