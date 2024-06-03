@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     mpv
     discord
+    armcord
     neovide
     vscode
     prismlauncher
