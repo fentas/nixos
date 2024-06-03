@@ -57,4 +57,8 @@
   programs.firefox = {
     enable = true;
   };
+
+  myNixOS = {
+    fish.enable = true;
+  };
 }
