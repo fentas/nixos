@@ -1,6 +1,11 @@
 { pkgs, lib, ...}:
 {
-  programs.fish.enable = lib.mkDefault true;
+  programs.fish = {
+    enable = lib.mkDefault true;
+    interactiveShellInit = ''
+      fzf_configure_bindings
+    '';
+  };
 
   programs.bash = {
     interactiveShellInit = ''
@@ -12,8 +17,10 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [
-    fishPlugins.fzf-fish
-    fishPlugins.tide
+  environment.systemPackages = with pkgs.fishPlugins; [
+    fzf-fish
+    z
+    pure
+    autopair
   ];
 }

@@ -27,6 +27,9 @@
     du-dust
     bat
 
+    # nice to have a scripting language
+    python312
+
     # Nix stuff
     nil
     alejandra
