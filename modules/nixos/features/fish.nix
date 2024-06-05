@@ -20,7 +20,7 @@
   environment.systemPackages = with pkgs.fishPlugins; [
     fzf-fish
     z
-    pure
+    tide
     autopair
   ];
 }

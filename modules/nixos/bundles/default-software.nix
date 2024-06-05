@@ -19,11 +19,10 @@
     gh
 
     # Other CLI tools
-    lf
+    yazi
     fastfetch
     zellij
     eza
-    zoxide
     du-dust
     bat
 
