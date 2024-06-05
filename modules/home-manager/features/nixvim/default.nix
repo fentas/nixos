@@ -31,6 +31,6 @@
     };
 
 
-    clipboard.providers.xclip.enable = true;
+    clipboard.providers.wl-copy.enable = true;
   };
 }
