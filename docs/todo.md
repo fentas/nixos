@@ -237,6 +237,7 @@ eza
 zoxide
 lazygit
 bat
-shell (fish or zsh?)
- - i'm leaning towards fish bcuz its simple but it cant be the login shell idk if that's a real issue
+
+update:
+ - added fish plugins, tbh pretty easy
 
