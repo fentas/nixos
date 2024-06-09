@@ -18,6 +18,7 @@
     locale.enable = true;
     nvidiagpu.enable = true;
     amdgpu.enable = false;
+    bluetooth.enable = true;
 
     home-users = {
       sam = {

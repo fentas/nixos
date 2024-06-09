@@ -17,11 +17,13 @@
 
     amdgpu.enable = true;
     nvidiagpu.enable = false;
+    bluetooth.enable = true;
     grub.enable = true;
     steam.enable = true;
     nix.enable = true;
     locale.enable = true;
     aagl.enable = true;
+
 
     matlab.enable = true;
 
