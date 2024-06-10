@@ -75,6 +75,7 @@
         nil_ls = {enable = true;};
         texlab = {enable = true;};
         pyright = {enable = true;};
+        jsonls = {enable = true;};
       };
 
       keymaps = {
@@ -175,6 +176,10 @@
     lualine = {
       enable = true;
       extensions = [ "nvim-tree" "toggleterm" "trouble" "quickfix"];
+    };
+
+    schemastore = {
+      enable = true;
     };
   };
 }

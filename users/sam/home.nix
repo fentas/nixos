@@ -10,6 +10,7 @@
 
     alacritty.enable = true;
     nixvim.enable = true;
+    fastfetch.enable = true;
   };
 
 

@@ -234,10 +234,13 @@ vscode (eww)
 zellij
 alacritty
 eza
-zoxide
 lazygit
 bat
 
 update:
  - added fish plugins, tbh pretty easy
 
+man i really need to pick a colorscheme. there's a ton on base16 but tbh they all have issues.
+nord is nice but TOO blue, a dark gray background would look way better
+rose-pine is nice in neovim but the purple background hurts my eyes after a while
+tokyonight is the ubuntu of colorschemes. it's too boring tbh.
