@@ -11,6 +11,7 @@
     alacritty.enable = true;
     nixvim.enable = true;
     fastfetch.enable = true;
+    zellij.enable = true;
   };
 
 
