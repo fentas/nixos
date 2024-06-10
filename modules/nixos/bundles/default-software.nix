@@ -63,4 +63,6 @@
   myNixOS = {
     fish.enable = true;
   };
+
+  services.flatpak.enable = true;
 }
