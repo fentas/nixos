@@ -5,6 +5,11 @@
     interactiveShellInit = ''
       fzf_configure_bindings
     '';
+    shellAliases = {
+      ls = "eza";
+    };
+
+    promptInit = builtins.readFile ./fish_prompt.fish;
   };
 
   programs.bash = {
@@ -20,7 +25,7 @@
   environment.systemPackages = with pkgs.fishPlugins; [
     fzf-fish
     z
-    tide
     autopair
+    transient-fish
   ];
 }
