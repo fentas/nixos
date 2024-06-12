@@ -1,4 +1,9 @@
 function fish_prompt
+  if test $USER = root;
+    set -g __user_color red
+  else
+    set -g __user_color brblue
+  end
   echo " "
   function __os_section
     function __impure_status
@@ -8,11 +13,11 @@ function fish_prompt
         echo " "
       end
     end
-    string join '' -- (set_color black -b blue) ' ' (__impure_status) (set_color blue -b brblue) ''
+    string join '' -- (set_color black -b blue) ' ' (__impure_status) (set_color blue -b $__user_color) ''
   end
 
   function __user_section
-    string join '' -- (set_color black) ' ' $USER ' ' (set_color brblue -b cyan) ''
+    string join '' -- (set_color black) ' ' $USER ' ' (set_color $__user_color -b cyan) ''
   end
 
   function __pwd_section
