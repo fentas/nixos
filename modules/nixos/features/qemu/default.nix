@@ -4,6 +4,8 @@
     spice
     win-spice
     virtio-win
+    bottles
+    unixODBC
   ];
 
   programs.virt-manager.enable = true;
