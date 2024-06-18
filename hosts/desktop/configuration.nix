@@ -26,6 +26,7 @@
 
 
     matlab.enable = true;
+    qemu.enable = true;
 
     home-users = {
       sam = {
