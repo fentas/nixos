@@ -227,7 +227,7 @@ What are some of the things that I should focus on configuring through home-mana
 firefox
 fzf
 fd
-fastfetch
+[done] fastfetch
 mangohud
 vscode (eww)
 ~lf~ yazi (it has icons mkay)
@@ -247,4 +247,6 @@ tokyonight is the ubuntu of colorschemes. it's too boring tbh.
 
 a
 
+i should rename docs dir to rants! lmao
 
+thoughts on nixos 1mo in: sooo glad i did the ridiculous config rewrite beforehand! being able to add small, isolated modules and enable/disable is great! honestly i have no idea how i would be able to integrate all kinds of extra stuff if i had stuck with a single file. i mean i'm sure it can be done but like woah
