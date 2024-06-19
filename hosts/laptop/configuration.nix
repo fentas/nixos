@@ -1,3 +1,4 @@
+# Settings specific to my latpop
 { ... }:
 
 {
@@ -10,17 +11,21 @@
   myNixOS = {
     bundles.plasma-desktop.enable = true;
     bundles.users.enable = true;
-    bundles.engineering.enable = true;
 
+    bundles.engineering.enable = true;
+    # bundles.productivity.enable = true;
+
+    amdgpu.enable = false;
+    nvidiagpu.enable = true;
+    bluetooth.enable = true;
     grub.enable = true;
     steam.enable = true;
     nix.enable = true;
     locale.enable = true;
-    nvidiagpu.enable = true;
-    amdgpu.enable = false;
-    bluetooth.enable = true;
+    # aagl.enable = true;
 
     matlab.enable = true;
+    qemu.enable = true;
 
     home-users = {
       sam = {
