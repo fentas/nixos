@@ -24,6 +24,7 @@
     locale.enable = true;
     aagl.enable = true;
 
+    adalm-pluto.enable = true;
 
     matlab.enable = true;
     qemu.enable = true;
@@ -32,7 +33,7 @@
       sam = {
         userConfig = ../../users/sam/home.nix;
         userSettings = {
-          extraGroups = ["networkmanager" "wheel"];
+          extraGroups = ["networkmanager" "wheel" "dialout"];
           description = "Sam T";
         };
       };
