@@ -72,10 +72,11 @@
       servers = {
         lua-ls = {enable = true;};
         clangd = {enable = true;};
-        nil_ls = {enable = true;};
+        nil-ls = {enable = true;};
         texlab = {enable = true;};
         pyright = {enable = true;};
         jsonls = {enable = true;};
+        yamlls = {enable = true;};
       };
 
       keymaps = {
