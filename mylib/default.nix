@@ -1,6 +1,7 @@
 {inputs}: let
   mylib = (import ./default.nix) {inherit inputs;};
   outputs = inputs.self.outputs;
+  pkgs-stable = import inputs.nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true;};
 in rec {
 
   # Library helper functions from Goxore/nixconf
@@ -13,10 +14,7 @@ in rec {
     inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs outputs mylib;
-        pkgs-stable = import inputs.nixpkgs-stable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
+        pkgs-stable = pkgs-stable;
       };
       modules = [
         config
@@ -37,7 +35,7 @@ in rec {
       ];
     };
 
-  
+
   # Get all files in a directory as a list.
   filesIn = dir: (map (fname: dir + "/${fname}")
     (builtins.attrNames (builtins.readDir dir)));
