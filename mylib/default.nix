@@ -1,10 +1,11 @@
 {inputs}: let
   mylib = (import ./default.nix) {inherit inputs;};
   outputs = inputs.self.outputs;
-  pkgs-stable = import inputs.nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true;};
+  system = "x86_64-linux";
+  pkgs-stable = import inputs.nixpkgs-stable { inherit system; config.allowUnfree = true;};
 in rec {
 
-  # Library helper functions from Goxore/nixconf
+  # Library helper functions adapted from Goxore/nixconf
 
   # Get the packages for a specific system (ex. "x86_64-linux")
   pkgsFor = sys: inputs.nixpkgs.legacyPackages.${sys};
@@ -12,9 +13,9 @@ in rec {
   # Create a NixOS configuration
   mkSystem = config:
     inputs.nixpkgs.lib.nixosSystem {
+      inherit system;
       specialArgs = {
-        inherit inputs outputs mylib;
-        pkgs-stable = pkgs-stable;
+        inherit inputs outputs mylib pkgs-stable;
       };
       modules = [
         config
@@ -23,9 +24,9 @@ in rec {
     };
 
   # Create a home-manager configuration
-  mkHome = sys: config:
+  mkHome = config:
     inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = pkgsFor sys;
+      pkgs = pkgsFor system;
       extraSpecialArgs = {
         inherit inputs outputs mylib;
       };
@@ -86,14 +87,14 @@ in rec {
     in (extendModule ((extension name) // {path = f;})))
     modules;
 
-  forAllSystems = pkgs:
-    inputs.nixpkgs.lib.genAttrs [
-      "x86_64-linux"
-      #"aarch64-linux"
-      #"x86_64-darwin"
-      #"aarch64-darwin"
-      # I don't use the other systems.
-    ]
-    (system: pkgs inputs.nixpkgs.legacyPackages.${system});
+  # forAllSystems = pkgs:
+  #   inputs.nixpkgs.lib.genAttrs [
+  #     "x86_64-linux"
+  #     #"aarch64-linux"
+  #     #"x86_64-darwin"
+  #     #"aarch64-darwin"
+  #     # I don't use the other systems.
+  #   ]
+  #   (system: pkgs inputs.nixpkgs.legacyPackages.${system});
 
 }

@@ -8,6 +8,7 @@
       url = "nixpkgs/nixos-unstable";
     };
 
+    # Stable packages, mainly to avoid rebuilds on big packages that don't need updates.
     nixpkgs-stable = {
       url = "nixpkgs/nixos-24.05";
     };
@@ -24,6 +25,7 @@
      inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Manages neovim through home-manager modules
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,7 +49,7 @@
     };
 
     homeConfigurations = {
-      sam = mkHome "x86_64-linux" ./users/sam/home.nix;
+      sam = mkHome ./users/sam/home.nix;
     };
 
     homeManagerModules.default = ./modules/home-manager;
