@@ -21,10 +21,10 @@
     grub.enable = true;
     steam.enable = true;
     nix.enable = true;
-    locale.enable = true;
     aagl.enable = true;
+    locale.enable = true;
 
-    adalm-pluto.enable = true;
+    # adalm-pluto.enable = true;
 
     matlab.enable = true;
     qemu.enable = true;

@@ -14,7 +14,7 @@
   # new amdgpu module does all of the above, essentially.
   hardware.amdgpu = {
     initrd.enable = true;
-    opencl.enable = true;
+#    opencl.enable = true;
   };
   services.xserver.videoDrivers = [ "amdgpu" ];
 
