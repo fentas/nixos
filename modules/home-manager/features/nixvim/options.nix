@@ -56,6 +56,8 @@
       tabstop = 2;
       shiftwidth = 2;
 
+      # disable automatic folding?? ew!?!
+      foldmethod="manual";
 
       # Now default in nvim 10.0!
       termguicolors = true;
