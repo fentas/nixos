@@ -8,22 +8,66 @@
     which-key = {
       enable = true;
       showKeys = true;
-      registrations = {
-        "<leader>c" = "[C]ode";
-        "<leader>d" = "[D]ocument";
-        "<leader>r" = "[R]ename";
-        "<leader>s" = "[S]earch";
-        "<leader>w" = "[W]orkspace";
-        "<leader>g" = "[G]it";
-        "<leader>df" = "[D]ocument [F]ormat";
-        "<leader>ca" = "[C]ode [A]ction";
-        "<leader>rn" = "[R]e[n]ame";
-        "gD" = "[G]oto [D]eclaration";
-        "gR" = "[G]oto [R]eferences";
-        "gi" = "[G]oto [I]mplementation";
-        "<leader>de" = "[D]iagnostics Lin[e]";
-        "<leader>dq" = "[D]iagnostics Loclist [q]";
-      };
+      settings.spec = [
+        {
+          __unkeyed-1 = "<leader>c";
+          desc = "Code";
+        }
+        {
+          __unkeyed-1 = "<leader>d";
+          desc = "Document";
+        }
+        {
+          __unkeyed-1 = "<leader>r";
+          desc = "Rename";
+        }
+        {
+          __unkeyed-1 = "<leader>s";
+          desc = "Search";
+        }
+        {
+          __unkeyed-1 = "<leader>w";
+          desc = "Workspace";
+        }
+        {
+          __unkeyed-1 = "<leader>g";
+          desc = "Git";
+        }
+        {
+          __unkeyed-1 = "<leader>df";
+          desc = "Format";
+        }
+        {
+          __unkeyed-1 = "<leader>ca";
+          desc = "Actions";
+        }
+        {
+          __unkeyed-1 = "<leader>rn";
+          desc = "Rename";
+        }
+        {
+          __unkeyed-1 = "gD";
+          desc = "Declaration";
+        }
+        {
+          __unkeyed-1 = "gR";
+          desc = "References";
+        }
+        {
+          __unkeyed-1 = "gi";
+          desc = "Implementation";
+        }
+        {
+          __unkeyed-1 = "<leader>de";
+          desc = "Diagnostics on Line";
+        }
+        {
+          __unkeyed-1 = "<leader>dq";
+          desc = "Diagnostics Loclist";
+        }
+
+
+      ];
     };
 
     luasnip = {
