@@ -10,6 +10,9 @@
     prismlauncher
 
     bottles
+
+    easyeffects
+    qpwgraph
   ];
 
   programs.kde-pim = {

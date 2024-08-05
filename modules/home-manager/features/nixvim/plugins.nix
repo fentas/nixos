@@ -175,9 +175,11 @@
 
     treesitter = {
       enable = true;
-      indent = true;
       nixvimInjections = true;
-      incrementalSelection.enable = true;
+      settings = {
+        indent.enable = true;
+        incrementalSelection.enable = true;
+      };
     };
 
     telescope = {
