@@ -25,6 +25,7 @@
     locale.enable = true;
 
     # adalm-pluto.enable = true;
+    steelseries.enable = true;
 
     matlab.enable = true;
     qemu.enable = true;
