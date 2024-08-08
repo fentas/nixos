@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     mpv
     discord
-    armcord
+    vesktop
     neovide
     vscode
     prismlauncher
