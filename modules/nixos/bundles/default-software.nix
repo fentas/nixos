@@ -33,6 +33,8 @@
     nil
     alejandra
 
+    chromium
+
   ];
 
   programs.neovim = {
