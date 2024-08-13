@@ -3,10 +3,21 @@
 {
   environment.systemPackages = with pkgs; [
     mangohud
-    protonup
+    protonup-qt
     protontricks
 
     lutris
+
+
+    # dependencies for steamtinkerlaunch
+    gawk
+    unzip
+    wget
+    xdotool
+    xorg.xprop
+    unixtools.xxd
+    xorg.xwininfo
+    yad
   ];
 
   programs.steam = {
