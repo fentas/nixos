@@ -1,6 +1,5 @@
 {...}:
 {
-  # sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -59,4 +58,6 @@
       # };
     };
   };
+
+  hardware.alsa.enablePersistence = true;
 }
