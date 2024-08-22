@@ -1,4 +1,4 @@
-{...}:
+{ pkgs, ...}:
 {
   security.rtkit.enable = true;
   services.pipewire = {
@@ -60,4 +60,8 @@
   };
 
   hardware.alsa.enablePersistence = true;
+
+  environment.systemPackages = with pkgs; [
+    alsa-utils
+  ];
 }
