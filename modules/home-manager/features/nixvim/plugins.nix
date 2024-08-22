@@ -7,67 +7,67 @@
 
     which-key = {
       enable = true;
-      showKeys = true;
-      settings.spec = [
-        {
-          __unkeyed-1 = "<leader>c";
-          desc = "Code";
-        }
-        {
-          __unkeyed-1 = "<leader>d";
-          desc = "Document";
-        }
-        {
-          __unkeyed-1 = "<leader>r";
-          desc = "Rename";
-        }
-        {
-          __unkeyed-1 = "<leader>s";
-          desc = "Search";
-        }
-        {
-          __unkeyed-1 = "<leader>w";
-          desc = "Workspace";
-        }
-        {
-          __unkeyed-1 = "<leader>g";
-          desc = "Git";
-        }
-        {
-          __unkeyed-1 = "<leader>df";
-          desc = "Format";
-        }
-        {
-          __unkeyed-1 = "<leader>ca";
-          desc = "Actions";
-        }
-        {
-          __unkeyed-1 = "<leader>rn";
-          desc = "Rename";
-        }
-        {
-          __unkeyed-1 = "gD";
-          desc = "Declaration";
-        }
-        {
-          __unkeyed-1 = "gR";
-          desc = "References";
-        }
-        {
-          __unkeyed-1 = "gi";
-          desc = "Implementation";
-        }
-        {
-          __unkeyed-1 = "<leader>de";
-          desc = "Diagnostics on Line";
-        }
-        {
-          __unkeyed-1 = "<leader>dq";
-          desc = "Diagnostics Loclist";
-        }
-
-
-      ];
+      settings = {
+        showKeys = true;
+        spec = [
+          {
+            __unkeyed-1 = "<leader>c";
+            desc = "Code";
+          }
+          {
+            __unkeyed-1 = "<leader>d";
+            desc = "Document";
+          }
+          {
+            __unkeyed-1 = "<leader>r";
+            desc = "Rename";
+          }
+          {
+            __unkeyed-1 = "<leader>s";
+            desc = "Search";
+          }
+          {
+            __unkeyed-1 = "<leader>w";
+            desc = "Workspace";
+          }
+          {
+            __unkeyed-1 = "<leader>g";
+            desc = "Git";
+          }
+          {
+            __unkeyed-1 = "<leader>df";
+            desc = "Format";
+          }
+          {
+            __unkeyed-1 = "<leader>ca";
+            desc = "Actions";
+          }
+          {
+            __unkeyed-1 = "<leader>rn";
+            desc = "Rename";
+          }
+          {
+            __unkeyed-1 = "gD";
+            desc = "Declaration";
+          }
+          {
+            __unkeyed-1 = "gR";
+            desc = "References";
+          }
+          {
+            __unkeyed-1 = "gi";
+            desc = "Implementation";
+          }
+          {
+            __unkeyed-1 = "<leader>de";
+            desc = "Diagnostics on Line";
+          }
+          {
+            __unkeyed-1 = "<leader>dq";
+            desc = "Diagnostics Loclist";
+          }
+        ];
+      };
     };
 
     luasnip = {
@@ -119,8 +119,8 @@
         nil-ls = {enable = true;};
         texlab = {enable = true;};
         pyright = {enable = true;};
-        jsonls = {enable = true;};
-        yamlls = {enable = true;};
+        # jsonls = {enable = true;};
+        # yamlls = {enable = true;};
       };
 
       keymaps = {
