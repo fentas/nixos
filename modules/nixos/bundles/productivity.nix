@@ -8,6 +8,7 @@ in
 {
   environment.systemPackages = with pkgs;[
     onlyoffice-bin_latest
+    libreoffice-qt6-fresh
     krita
     gimp
     inkscape

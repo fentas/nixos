@@ -22,4 +22,6 @@
     kontact = true;
   };
 
+  programs.partition-manager.enable = true;
+
 }
