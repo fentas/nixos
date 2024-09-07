@@ -119,8 +119,8 @@
         nil-ls = {enable = true;};
         texlab = {enable = true;};
         pyright = {enable = true;};
-        # jsonls = {enable = true;};
-        # yamlls = {enable = true;};
+        jsonls = {enable = true;};
+        yamlls = {enable = true;};
       };
 
       keymaps = {
