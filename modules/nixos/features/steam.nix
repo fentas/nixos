@@ -8,6 +8,8 @@
 
     lutris
 
+    r2modman
+
 
     # dependencies for steamtinkerlaunch
     gawk
