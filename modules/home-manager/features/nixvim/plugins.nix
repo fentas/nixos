@@ -222,7 +222,9 @@
 
     lualine = {
       enable = true;
-      extensions = [ "nvim-tree" "toggleterm" "trouble" "quickfix"];
+      settings = {
+        extensions = [ "nvim-tree" "toggleterm" "trouble" "quickfix"];
+      };
     };
 
     schemastore = {
