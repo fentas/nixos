@@ -30,6 +30,8 @@
     matlab.enable = true;
     qemu.enable = true;
 
+    hp-printer.enable = true;
+
     home-users = {
       sam = {
         userConfig = ../../users/sam/home.nix;
