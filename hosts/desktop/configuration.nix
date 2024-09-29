@@ -36,7 +36,7 @@
       sam = {
         userConfig = ../../users/sam/home.nix;
         userSettings = {
-          extraGroups = ["networkmanager" "wheel" "dialout"];
+          extraGroups = ["networkmanager" "wheel" "dialout" "scanner" "lp"];
           description = "Sam T";
         };
       };
