@@ -230,5 +230,9 @@
     schemastore = {
       enable = true;
     };
+
+    web-devicons = {
+      enable = true;
+    };
   };
 }
