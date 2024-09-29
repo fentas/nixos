@@ -1,10 +1,5 @@
 # Contains office software, editing software, etc.
-{ pkgs, pkgs-stable, ... }:
-let
-  stable-pkgs = with pkgs-stable; [
-    davinci-resolve
-  ];
-in
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs;[
     onlyoffice-bin_latest
@@ -12,6 +7,8 @@ in
     krita
     gimp
     inkscape
-  ] ++ stable-pkgs;
+    obs-studio
+    kdePackages.kdenlive
+  ];
 
 }
