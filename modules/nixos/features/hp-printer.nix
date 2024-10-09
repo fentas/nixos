@@ -4,12 +4,11 @@
     enable = true;
     drivers = [ pkgs.hplipWithPlugin ];
 
-    # Due to recent vulnerability (not in nixos-unstable yet)
-    # browsed.enable = lib.mkForce false;
+    browsed.enable = lib.mkForce false;
   };
 
   # hotfix to disable systemd-browsed
-  systemd.services.cups-browsed = lib.warn "Manually overriding systemd-browsed." lib.mkForce {};
+  # systemd.services.cups-browsed = lib.warn "Manually overriding systemd-browsed." lib.mkForce {};
 
   # Prefer to add printers manually.
   # Re-enable avahi if I can't in future.

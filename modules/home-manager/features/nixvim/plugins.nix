@@ -114,9 +114,9 @@
     lsp = {
       enable = true;
       servers = {
-        lua-ls = {enable = true;};
+        lua_ls = {enable = true;};
         clangd = {enable = true;};
-        nil-ls = {enable = true;};
+        nil_ls = {enable = true;};
         texlab = {enable = true;};
         pyright = {enable = true;};
         jsonls = {enable = true;};
