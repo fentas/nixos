@@ -11,6 +11,7 @@ in
     qalculate-qt
     qucs-s
     ngspice
+    xyce
 
     (octaveFull.withPackages (ps: with ps; [
       symbolic
