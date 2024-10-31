@@ -17,7 +17,10 @@
 
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["JetBrainsMono" "FiraCode"];})
+    corefonts
   ];
+
+  fonts.enableGhostscriptFonts = true;
 
   fonts.enableDefaultPackages = true;
 
