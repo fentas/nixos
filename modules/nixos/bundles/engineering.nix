@@ -2,7 +2,7 @@
 { pkgs, pkgs-stable, ... }:
 let 
   stable-pkgs = with pkgs-stable; [
-    kicad
+    # kicad - try installing kicad from flatpak for now?
   ];
 in
 {
