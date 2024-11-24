@@ -71,7 +71,7 @@
         source = ./icon.txt;
       };
       display = {
-        keyWidth = 12;
+        key.width = 12;
         separator = " ";
       };
     };
