@@ -5,25 +5,21 @@
     # Process/system monitors
     gtop
     htop
-    btop
 
     # CLI tools for Neovim
     fzf
     fd
     ripgrep
     clang
-    xclip
 
     # Git
     git
     gh
 
     # Other CLI tools
-    yazi
     fastfetch
     zellij
     eza
-    du-dust
     bat
 
     # nice to have a scripting language
@@ -34,7 +30,6 @@
     alejandra
 
     chromium
-
   ];
 
   programs.neovim = {
@@ -49,10 +44,6 @@
   };
 
   programs.nh = {
-    enable = true;
-  };
-
-  programs.tmux = {
     enable = true;
   };
 

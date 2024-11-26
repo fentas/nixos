@@ -1,12 +1,14 @@
 { pkgs, ... }:
 {
+  
+  # Mostly disabled since I never use any of it.
 
-  environment.systemPackages = with pkgs; [
-    # Manages for Steelseries Arctis 7 Nova headset
-    headsetcontrol
-    # Manages Steelseries Prime Wireless mouse
-    rivalcfg
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   # Manages for Steelseries Arctis 7 Nova headset
+  #   headsetcontrol
+  #   # Manages Steelseries Prime Wireless mouse
+  #   rivalcfg
+  # ];
 
   services.udev.extraRules = ''
 
@@ -35,9 +37,9 @@
   '';
 
   # enable openrgb for Apex 7
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-  };
+  # services.hardware.openrgb = {
+  #   enable = true;
+  #   package = pkgs.openrgb-with-all-plugins;
+  # };
 
 }
