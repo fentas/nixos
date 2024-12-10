@@ -290,15 +290,7 @@
       {
         mode = "n";
         key = "<leader>dd";
-        action.__raw = "function() require('trouble').toggle('document_diagnostics') end";
-        options = {
-          desc = "[D]ocument [D]iagnostics";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>wd";
-        action.__raw = "function() require('trouble').toggle('workspace_diagnostics') end";
+        action.__raw = "function() require('trouble').toggle('diagnostics') end";
         options = {
           desc = "[D]ocument [D]iagnostics";
         };
