@@ -7,11 +7,13 @@
 
   myHomeManager = {
     bundles.general.enable = true;
+    bundles.desktopitems.enable = true;
 
     alacritty.enable = true;
     nixvim.enable = true;
     fastfetch.enable = true;
     zellij.enable = true;
+
   };
 
 
