@@ -28,6 +28,7 @@
     steelseries.enable = true;
 
     matlab.enable = true;
+    xilinx.enable = true;
     qemu.enable = true;
 
     hp-printer.enable = true;
