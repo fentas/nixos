@@ -24,6 +24,4 @@
   fonts.enableGhostscriptFonts = true;
 
   fonts.enableDefaultPackages = true;
-
-  programs.noisetorch.enable = true;
 }

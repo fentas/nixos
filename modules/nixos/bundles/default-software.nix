@@ -30,6 +30,8 @@
     alejandra
 
     chromium
+
+    neovide
   ];
 
   programs.neovim = {
