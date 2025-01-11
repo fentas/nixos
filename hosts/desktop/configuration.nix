@@ -33,6 +33,8 @@
 
     hp-printer.enable = true;
 
+    minecraft.enable = true;
+
     home-users = {
       sam = {
         userConfig = ../../users/sam/home.nix;
