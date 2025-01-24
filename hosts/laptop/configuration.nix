@@ -24,8 +24,10 @@
     locale.enable = true;
     # aagl.enable = true;
 
+    xilinx.enable = true;
     matlab.enable = true;
     qemu.enable = true;
+
 
     home-users = {
       sam = {
