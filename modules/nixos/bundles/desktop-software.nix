@@ -9,13 +9,9 @@
     bottles
 
     qpwgraph
-  ];
 
-  programs.kde-pim = {
-    enable = true;
-    kmail = true;
-    kontact = true;
-  };
+    thunderbird
+  ];
 
   programs.partition-manager.enable = true;
 
