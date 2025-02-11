@@ -7,6 +7,7 @@
     protontricks
 
     lutris
+    wineWowPackages.stable
 
     r2modman
 

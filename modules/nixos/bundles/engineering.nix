@@ -13,6 +13,8 @@ in
     ngspice
     xyce
 
+    xournalpp
+
     (octaveFull.withPackages (ps: with ps; [
       symbolic
       control
