@@ -2,8 +2,10 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    discord
-    vesktop
+    (discord.override {
+      withVencord = true;
+      withOpenASAR = true;
+    })
     prismlauncher
 
     bottles
