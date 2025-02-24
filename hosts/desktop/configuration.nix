@@ -1,5 +1,5 @@
 # For settings specific to desktop
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -46,6 +46,10 @@
     };
 
   };
+
+  environment.systemPackages = with pkgs; [
+    liquidctl
+  ];
 
   system.stateVersion = "23.11";
 }

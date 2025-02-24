@@ -32,6 +32,8 @@
     chromium
 
     neovide
+
+    unrar
   ];
 
   programs.neovim = {

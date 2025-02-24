@@ -6,6 +6,7 @@
       withVencord = true;
       withOpenASAR = true;
     })
+    vesktop
     prismlauncher
 
     bottles
