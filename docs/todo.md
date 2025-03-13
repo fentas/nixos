@@ -209,8 +209,10 @@ for desktops, including a desktop environment, graphical applications, and the l
 enable or disable, as I might not need a video editor (for example) on every computer. To be honest, this layer of abstraction is a bit, uhh, redundant, as
 most apps really don't need a lot of configuration. Especially graphical applications.
 
+notes from the future: i probably should have just stuck with features. breaking things out into two folders is rather redundant, and I don't think I've made a new bundle since starting. oh well, wait for the inevitable refactor.
 
-BIG TODO: use a stable release branch for things like davinci-resolve so it doesn't have to build every time i update. (DONE)
+
+BIG TODO: use a stable release branch for things like davinci-resolve so it doesn't have to build every time i update. (DONE) [future again: when encountering annoying packages like this, just use flatpak or find something else. not worth the hassle.]
 
 
 # current
@@ -220,8 +222,8 @@ ok so basically the config works great and its really easy to add to. i'm not su
 What are some of the things that I should focus on configuring through home-manager?
 
 1) continuously tweak neovim configuration
-  a) long-term stretch goal: settle on a colorscheme
-  b) decide if said colorscheme should be applied system-wide
+  a) long-term stretch goal: settle on a colorscheme [i still haven't done this lol]
+  b) decide if said colorscheme should be applied system-wide [most certainly not]
 
 ## software I can mess with in home-manager:
 firefox
@@ -245,8 +247,8 @@ nord is nice but TOO blue, a dark gray background would look way better
 rose-pine is nice in neovim but the purple background hurts my eyes after a while
 tokyonight is the ubuntu of colorschemes. it's too boring tbh.
 
-a
-
 i should rename docs dir to rants! lmao
 
 thoughts on nixos 1mo in: sooo glad i did the ridiculous config rewrite beforehand! being able to add small, isolated modules and enable/disable is great! honestly i have no idea how i would be able to integrate all kinds of extra stuff if i had stuck with a single file. i mean i'm sure it can be done but like woah
+
+now a year in and most things haven't changed. nice! I've realized nearly all of the "software" i use is a web browser in disguise. I pretty much use ~~discord~~ vesktop, steam, and firefox. sometimes thunderbird.

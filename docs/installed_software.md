@@ -1,3 +1,7 @@
+been a while since i edited this doc. considering its been a year since i've started using linux and nix it's worth a shot.
+i'll keep my rambling here and never delete anything so it may be confusing to read but imagine this is a conversation with myself --- cuz it is.
+maybe you can find something useful in here.
+
 # A Discussion of Installed Software
 
 Because, frankly, I don't really have a list of what I (1) need, (2) want, (3) don't need.
@@ -257,8 +261,9 @@ Inkscape because vector images are a whole different beast
 no config needed
 
 
-## Video Editor: Davinci Resolve
+## Video Editor: Kdenlive
 TBH I'm not sure whether to go with DaVinci Resolve or Kdenlive. I've used DaVinci in the past, so I'll try it.
+EDIT: nah. kdenlive for the win. davinci codecs on linux are not something I feel like messing with, and i do this so rarely anyway.
 no config needed
 
 
@@ -269,6 +274,8 @@ provided by vscode is simply better out-of-the-box.
 
 That being said, I'll basically use neovim for pretty much everything. Would be cool to add neovide (or any other neovim gui).
 heavy config needed for both
+
+i've changed my mind with this. i kinda hate vscode, neovim is the way to go. if i need to debug again i'll look into something else.
 
 
 ## Games: Steam, Lutris.
@@ -282,11 +289,12 @@ no config needed
 
 ## Browser: Firefox
 DUH!
+might have to change, but do i care?
 config needed
 
 
 ## Other productivity
-kicad
+kicad - install from flatpak. the nixpkgs version is broken on wayland (intentionally?)
 qalculate-qt
 mpv
 no config needed
@@ -299,24 +307,24 @@ fd
 ripgrep
 git
 fastfetch
-lf
-tmux
+lf - i was a bit interested in using a terminal based file manager. now i realize it literally doesn't matter and dolphin is good.
+tmux - i just use zellij or multiple alacritty windows
 zellij
 pciutils
 usbutils
 gh
 eza
-zoxide
-du-dust
+zoxide - replaced with z fish plugin
+du-dust - i don't use it
 nh
 nil
 alejandra
 lazygit
 bat
-various configs needd
+various configs needed
 
 ## Useful desktop stuff!
-noisetorch
+noisetorch - ended up being not useful. use vesktop which has noise suppression support. i kind of hate linux audio...
 
 
 ## Main shell
@@ -324,6 +332,7 @@ I like fish. its super easy to use and customize. Zsh is cool and compliant or w
 plus making a usable zsh config is harder than nixos.
 
 hm config needed
+on this point i made a custom prompt but that's about it. i don't really need much else so there's not a lot of config for fish.
 
 
 
