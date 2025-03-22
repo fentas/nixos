@@ -13,7 +13,7 @@
 
     qpwgraph
 
-    thunderbird
+    thunderbird-latest
   ];
 
   programs.partition-manager.enable = true;
