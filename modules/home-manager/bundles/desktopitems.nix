@@ -6,7 +6,7 @@
       comment = "Video Game Preservation Platform";
       categories = ["Game"];
       exec = "steam-run lutris %U";
-      icon = "lutris";
+      icon = "net.lutris.Lutris";
       terminal = false;
       type = "Application";
       startupNotify = true;
