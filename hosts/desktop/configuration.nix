@@ -28,12 +28,12 @@
     steelseries.enable = true;
 
     matlab.enable = true;
-    xilinx.enable = true;
+    #xilinx.enable = true;
     qemu.enable = true;
 
     hp-printer.enable = true;
 
-    minecraft.enable = true;
+    #minecraft.enable = true;
 
     home-users = {
       sam = {
