@@ -9,64 +9,6 @@
       enable = true;
       settings = {
         showKeys = true;
-        spec = [
-          {
-            __unkeyed-1 = "<leader>c";
-            desc = "Code";
-          }
-          {
-            __unkeyed-1 = "<leader>d";
-            desc = "Document";
-          }
-          {
-            __unkeyed-1 = "<leader>r";
-            desc = "Rename";
-          }
-          {
-            __unkeyed-1 = "<leader>s";
-            desc = "Search";
-          }
-          {
-            __unkeyed-1 = "<leader>w";
-            desc = "Workspace";
-          }
-          {
-            __unkeyed-1 = "<leader>g";
-            desc = "Git";
-          }
-          {
-            __unkeyed-1 = "<leader>df";
-            desc = "Format";
-          }
-          {
-            __unkeyed-1 = "<leader>ca";
-            desc = "Actions";
-          }
-          {
-            __unkeyed-1 = "<leader>rn";
-            desc = "Rename";
-          }
-          {
-            __unkeyed-1 = "gD";
-            desc = "Declaration";
-          }
-          {
-            __unkeyed-1 = "gR";
-            desc = "References";
-          }
-          {
-            __unkeyed-1 = "gi";
-            desc = "Implementation";
-          }
-          {
-            __unkeyed-1 = "<leader>de";
-            desc = "Diagnostics on Line";
-          }
-          {
-            __unkeyed-1 = "<leader>dq";
-            desc = "Diagnostics Loclist";
-          }
-        ];
       };
     };
 
@@ -114,59 +56,44 @@
     lsp = {
       enable = true;
       servers = {
-        lua_ls = {enable = true;};
-        clangd = {enable = true;};
-        nil_ls = {enable = true;};
-        texlab = {enable = true;};
+        lua_ls  = {enable = true;};
+        clangd  = {enable = true;};
+        nil_ls  = {enable = true;};
+        texlab  = {enable = true;};
         pyright = {enable = true;};
-        jsonls = {enable = true;};
-        yamlls = {enable = true;};
+        jsonls  = {enable = true;};
+        yamlls  = {enable = true;};
       };
 
       keymaps = {
         diagnostic = {
-          "[d" = "goto_prev";
-          "]d" = "goto_next";
           "<leader>de" = "open_float";
           "<leader>dq" = "setloclist";
         };
 
         lspBuf = {
-          "gD" = "declaration";
-          "gR" = "references";
-          "gi" = "implementation";
-          "K" = "hover";
-          "<leader>rn" = "rename";
-          "<leader>ca" = "code_action";
-          "<leader>df" = "format";
+          "grf" = "format";
         };
         extra = [
           {
-            key = "gd";
+            key = "grd";
             action.__raw = "require('telescope.builtin').lsp_definitions";
             options = {
-              desc = "[G]oto [D]efinitions";
+              desc = "Peek Definitions";
             };
           }
           {
             key = "gI";
             action.__raw = "require('telescope.builtin').lsp_implementations";
             options = {
-              desc = "[G]oto [I]mplementations";
+              desc = "Peek Implementations";
             };
           }
           {
-            key = "<leader>ds";
+            key = "gO";
             action.__raw = "require('telescope.builtin').lsp_document_symbols";
             options = {
-              desc = "[D]ocument [S]ymbols";
-            };
-          }
-          {
-            key = "<leader>ws";
-            action.__raw = "require('telescope.builtin').lsp_dynamic_workspace_symbols";
-            options = {
-              desc = "[W]orkspace [S]ymbols";
+              desc = "Document Symbols";
             };
           }
         ];
@@ -178,7 +105,6 @@
       nixvimInjections = true;
       settings = {
         indent.enable = true;
-        incrementalSelection.enable = true;
       };
     };
 
@@ -186,9 +112,6 @@
       enable = true;
       extensions = {
         fzf-native = {
-          enable = true;
-        };
-        ui-select = {
           enable = true;
         };
       };
@@ -202,10 +125,6 @@
         };
         surround = { };
       };
-    };
-
-    nvim-autopairs = {
-      enable = true;
     };
 
     trouble = {

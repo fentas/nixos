@@ -65,6 +65,8 @@
       # for neovide!
       guifont = "JetBrainsMono NF:h12";
 
+      wrap = false;
+      linebreak = true;
     };
   };
 }

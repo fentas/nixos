@@ -127,60 +127,14 @@
         key = "<C-n>";
         action = "<cmd>NvimTreeToggle<CR>";
         options = {
-          desc = "Toggle [N]vimtree";
+          desc = "Toggle Nvimtree";
         };
       }
       {
         key = "<leader>e";
         action = "<cmd>NvimTreeFocus<CR>";
         options = {
-          desc = "[E]xplore Files";
-        };
-      }
-      {
-        key = "]c";
-        action.__raw = "function() if vim.wo.diff then return ']c' end vim.schedule(function() require('gitsigns').next_hunk() end) return '<Ignore>' end";
-        options = {
-          desc = "Move to next Git hunk";
-        };
-      }
-      {
-        key = "[c";
-        action.__raw = "function() if vim.wo.diff then return ']c' end vim.schedule(function() require('gitsigns').prev_hunk() end) return '<Ignore>' end";
-        options = {
-          desc = "Move to previous Git hunk";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>gr";
-        action.__raw = "require('gitsigns').reset_hunk";
-        options = {
-          desc = "[G]it [R]eset Hunk";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>gp";
-        action.__raw = "require('gitsigns').preview_hunk";
-        options = {
-          desc = "[G]it [P]review Hunk";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>gb";
-        action.__raw = "package.loaded.gitsigns.blame_line";
-        options = {
-          desc = "[G]it [B]lame";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>gt";
-        action.__raw = "require('gitsigns').toggle_deleted";
-        options = {
-          desc = "[G]it [T]oggle Deleted";
+          desc = "Explore Files";
         };
       }
       {
@@ -188,7 +142,7 @@
         key = "<leader>sh";
         action = "<cmd>Telescope help_tags<CR>";
         options = {
-          desc = "[S]earch [H]elp";
+          desc = "Search Help";
         };
       }
       {
@@ -196,7 +150,7 @@
         key = "<leader>sk";
         action = "<cmd>Telescope keymaps<CR>";
         options = {
-          desc = "[S]earch [K]eymaps";
+          desc = "Search Keymaps";
         };
       }
       {
@@ -204,7 +158,7 @@
         key = "<leader>sf";
         action = "<cmd>Telescope find_files<CR>";
         options = {
-          desc = "[S]earch [F]iles";
+          desc = "Search Files";
         };
       }
       {
@@ -212,7 +166,7 @@
         key = "<leader>st";
         action = "<cmd>Telescope builtin<CR>";
         options = {
-          desc = "[S]earch [T]elescopes";
+          desc = "Search Telescopes";
         };
       }
       {
@@ -220,7 +174,7 @@
         key = "<leader>sw";
         action = "<cmd>Telescope grep_string<CR>";
         options = {
-          desc = "[S]earch [W]ord";
+          desc = "Search Word";
         };
       }
       {
@@ -228,7 +182,7 @@
         key = "<leader>sg";
         action = "<cmd>Telescope live_grep<CR>";
         options = {
-          desc = "[S]earch by [G]rep";
+          desc = "Search by Grep";
         };
       }
       {
@@ -236,7 +190,7 @@
         key = "<leader>sd";
         action = "<cmd>Telescope diagnostics<CR>";
         options = {
-          desc = "[S]earch [D]iagnostics";
+          desc = "Search Diagnostics";
         };
       }
       {
@@ -244,7 +198,7 @@
         key = "<leader>sr";
         action = "<cmd>Telescope resume<CR>";
         options = {
-          desc = "[S]earch [R]esume";
+          desc = "Search Resume";
         };
       }
       {
@@ -252,7 +206,7 @@
         key = "<leader>s.";
         action = "<cmd>Telescope recents<CR>";
         options = {
-          desc = "[S]earch Recent Files [.]";
+          desc = "Search Recent Files";
         };
       }
       {
@@ -260,7 +214,7 @@
         key = "<leader>sc";
         action = "<cmd>Telescope git_status<CR>";
         options = {
-          desc = "[S]earch [C]ommits";
+          desc = "Search Commits";
         };
       }
       {
@@ -268,7 +222,7 @@
         key = "<leader><leader>";
         action.__raw = "function() require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({previewer=false})) end";
         options = {
-          desc = "[ ] Find Buffers";
+          desc = "Find Buffers";
         };
       }
       {
@@ -276,7 +230,7 @@
         key = "<leader>/";
         action.__raw = "function() require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({previewer=false})) end";
         options = {
-          desc = "[/] Fuzzy in Current Buffer";
+          desc = "Fuzzy in Current Buffer";
         };
       }
       {
@@ -284,7 +238,7 @@
         key = "<leader>s/";
         action.__raw = "function() require('telescope.builtin').live_grep({grep_open_files = true, prompt_title = 'Grep in Open Files'}) end";
         options = {
-          desc = "[S]earch [/] in Open Files";
+          desc = "Search in Open Files";
         };
       }
       {
@@ -292,7 +246,7 @@
         key = "<leader>dd";
         action.__raw = "function() require('trouble').toggle('diagnostics') end";
         options = {
-          desc = "[D]ocument [D]iagnostics";
+          desc = "Document Diagnostics";
         };
       }
       {
@@ -300,7 +254,7 @@
         key = "<leader>q";
         action.__raw = "function() require('trouble').toggle('quickfix') end";
         options = {
-          desc = "[Q]uickfix";
+          desc = "Quickfix";
         };
       }
       {
@@ -308,7 +262,7 @@
         key = "gr";
         action.__raw = "function() require('trouble').toggle('lsp_references') end";
         options = {
-          desc = "[G]oto [R]eferences";
+          desc = "Goto References";
         };
       }
       {

@@ -17,9 +17,6 @@
     enableMan = true;
 
     colorschemes = {
-      tokyonight = {
-       enable = false;
-      };
       rose-pine = {
         enable = true;
         settings = {
