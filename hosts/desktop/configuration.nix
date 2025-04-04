@@ -9,30 +9,15 @@
   networking.hostName = "desktop";
 
   myNixOS = {
-    bundles.plasma-desktop.enable = true;
-    bundles.users.enable = true;
+    bundles.hyprland-desktop.enable = true;
 
     bundles.engineering.enable = true;
     bundles.productivity.enable = true;
 
     amdgpu.enable = true;
-    nvidiagpu.enable = false;
-    bluetooth.enable = true;
-    grub.enable = true;
     steam.enable = true;
-    nix.enable = true;
     aagl.enable = true;
-    locale.enable = true;
-
-    # adalm-pluto.enable = true;
-    steelseries.enable = true;
-
     matlab.enable = true;
-    #xilinx.enable = true;
-    qemu.enable = true;
-
-    hp-printer.enable = true;
-
     #minecraft.enable = true;
 
     home-users = {
@@ -51,6 +36,7 @@
     liquidctl
     scrcpy
   ];
+
 
   system.stateVersion = "23.11";
 }

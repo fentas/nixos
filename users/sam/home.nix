@@ -1,4 +1,4 @@
-{ outputs, lib, ... }:
+{ outputs, lib, hostname, ... }:
 {
   imports = [outputs.homeManagerModules.default];
 
@@ -13,6 +13,8 @@
     nixvim.enable = true;
     fastfetch.enable = true;
     zellij.enable = true;
+
+    hyprland.enable = true;
 
   };
 

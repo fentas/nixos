@@ -1,28 +1,23 @@
 { lib, pkgs, ... }:
 let
-  background-package = pkgs.stdenvNoCC.mkDerivation {
-    name = "background-image";
-    src = ./.;
-    dontUnpack = true;
-    installPhase = ''
-      cp $src/wallpaper.png $out
-    '';
+  sddm-astronaut = pkgs.sddm-astronaut.override {
+    themeConfig = {
+      AccentColor = "#F2F3F4";
+      FormPosition = "center";
+      Background="${./wallpaper.png}";
+    };
   };
 in
 {
-  #services.xserver.enable = true;
   services.displayManager.sddm = {
     enable = lib.mkDefault true;
-    theme = "breeze";
     wayland.enable = true;
+    theme = "sddm-astronaut-theme";
+    extraPackages = [sddm-astronaut];
+    package = pkgs.kdePackages.sddm;
   };
 
   environment.systemPackages = [
-    (
-      pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-        [General]
-        background = ${background-package}
-      ''
-    )
+    sddm-astronaut
   ];
 }
