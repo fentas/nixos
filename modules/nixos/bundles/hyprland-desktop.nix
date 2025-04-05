@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   myNixOS = {
     bundles.main.enable = true;
@@ -13,5 +13,35 @@
     networking.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
   };
+
+  # Default applications with Hyprland
+  environment.systemPackages = with pkgs; [
+    # Music player
+    gapless
+
+    # PDF Viewer
+    kdePackages.okular
+
+    # Screenshot
+    hyprshot
+    hyprpicker
+
+    # Media
+    celluloid
+
+    # Image viewer
+    image-roll
+
+    # Wifi settings
+    networkmanagerapplet
+
+    # note taking
+    rnote
+
+    nautilus
+    file-roller
+
+    pwvucontrol
+  ];
 
 }

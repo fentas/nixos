@@ -10,8 +10,8 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
+      package = pkgs.gnome-themes-extra;
+      name = "Adwaita-dark";
     };
 
     iconTheme = {
@@ -22,6 +22,14 @@
     font = {
       name = "Sans";
       size = 11;
+    };
+  };
+
+  qt = {
+    enable = true;
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
     };
   };
 }

@@ -16,6 +16,11 @@
         "uwsm app -- udiskie"
       ];
 
+      monitor = [
+        "desc:Dell Inc. S2719DGF FRG05V2, 2560x1440@144, auto, 1, vrr, 2"
+        "desc:Dell Inc. DELL S2721DS 1N3YTY3, 2560x1440@75, auto, 1"
+      ];
+
       general = {
         gaps_in = 5;
         gaps_out = 20;
@@ -62,6 +67,8 @@
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
 
+        "$mod SHIFT, s, exec, hyprshot -m region"
+
       ] ++ (
         builtins.concatLists (builtins.genList (i:
           let ws = 1 + i;
@@ -79,6 +86,13 @@
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         "HYPRCURSOR_SIZE,24"
+      ];
+
+      device = [
+        {
+          name = "wireless-controller-touchpad";
+          enabled = 0;
+        }
       ];
     };
   };

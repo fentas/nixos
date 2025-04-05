@@ -8,12 +8,9 @@ in
 {
 
   environment.systemPackages = with pkgs;[
-    qalculate-qt
     qucs-s
     ngspice
     xyce
-
-    xournalpp
 
     (octaveFull.withPackages (ps: with ps; [
       symbolic

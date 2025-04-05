@@ -45,15 +45,11 @@
     waybar
     mako
     libnotify
-    nautilus
     wofi
     brightnessctl
     udiskie
     hyprpolkitagent
-    pavucontrol
-    
-    kdePackages.qt6ct
-    kdePackages.breeze
+    qt6ct
   ];
 
   environment.sessionVariables = {

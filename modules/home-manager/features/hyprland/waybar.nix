@@ -11,11 +11,11 @@
         position = "top";
         height = 24;
         modules-left = [
-          "sway/workspaces"
-          "sway/mode"
+          "hyprland/workspaces"
+          "hyprland/submap"
         ];
         modules-center = [
-          "sway/window"
+          "hyprland/window"
         ];
         modules-right = [
           "pulseaudio"
@@ -25,7 +25,7 @@
           "tray"
           "clock"
         ];
-        "sway/workspaces" = {
+        "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
           format = "{icon}";
@@ -41,13 +41,14 @@
             "default"="";
           };
         };
-        "sway/mode" = {
+        "hyprland/submap" = {
           format = "<span style=\\\"italic\\\">{}</span>";
         };
         tray = {
           spacing = 10;
         };
         clock = {
+          format = "{:%I:%M p}";
           format-alt = "{:%Y-%m-%d}";
         };
         cpu = {
@@ -74,7 +75,7 @@
             "car"        = "";
             "default"    = ["" ""];
           };
-          on-click = "pavucontrol";
+          on-click = "pwvucontrol";
         };
       };
     };

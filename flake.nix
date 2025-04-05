@@ -55,8 +55,7 @@
     };
 
     homeConfigurations = {
-      "sam@desktop" = mkHome ./users/sam/home.nix ./hosts/desktop/home.nix;
-      "sam@laptop"  = mkHome ./users/sam/home.nix ./hosts/laptop/home.nix;
+      sam = mkHome ./users/sam/home.nix;
     };
 
     homeManagerModules.default = ./modules/home-manager;

@@ -24,14 +24,13 @@ in rec {
     };
 
   # Create a home-manager configuration
-  mkHome = config: host-home:
+  mkHome = config:
     inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = pkgsFor system;
       extraSpecialArgs = {
         inherit inputs outputs mylib;
       };
       modules = [
-        host-home
         config
         outputs.homeManagerModules.default
       ];
