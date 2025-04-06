@@ -49,7 +49,7 @@
         "$mod, R, exec, $menu"
         "$mod, E, exec, $fileManager"
         "$mod, C, killactive"
-        "$mod SHIFT, M, exec, loginctl kill-session $XDG_SESSION_ID"
+        "$mod SHIFT, M, exec, wlogout -b 1 -r 40"
         "$mod, V, togglefloating"
         "$mod, F, fullscreen"
         "$mod, m, exec, hyprlock"
@@ -75,17 +75,13 @@
           in [
             "$mod, code:1${toString i}, workspace, ${toString ws}"
             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            "$mod CTRL_SHIFT, code:1${toString i}, focusworkspaceoncurrentmonitor, ${toString ws}"
           ]
         ) 9));
 
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
-      ];
-
-      env = [
-        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
-        "HYPRCURSOR_SIZE,24"
       ];
 
       device = [

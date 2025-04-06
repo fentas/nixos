@@ -41,14 +41,12 @@
     };
   };
 
+  services.gvfs.enable = true;
+
   environment.systemPackages = with pkgs; [
-    waybar
-    mako
-    libnotify
-    wofi
+    hyprpolkitagent
     brightnessctl
     udiskie
-    hyprpolkitagent
     qt6ct
   ];
 
