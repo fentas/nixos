@@ -67,7 +67,7 @@
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
 
-        "$mod SHIFT, s, exec, hyprshot -m region"
+        "$mod SHIFT, s, exec, hyprshot -m region -o ~/Pictures/Screenshots"
 
       ] ++ (
         builtins.concatLists (builtins.genList (i:
