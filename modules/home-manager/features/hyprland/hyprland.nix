@@ -35,7 +35,7 @@
           enabled = true;
           size = 16;
           passes = 1;
-          xray = true;
+          #xray = true;
         };
       };
       
@@ -97,6 +97,18 @@
           enabled = 0;
         }
       ];
+
+      layerrule = [
+        "blur, wofi"
+        "ignorezero, wofi"
+        "blur, notifications"
+        "ignorezero, notifications"
+      ];
+
+      misc = {
+        disable_hyprland_logo = true;
+        background_color = "rgb(41, 49, 54)";
+      };
     };
   };
 }
