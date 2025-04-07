@@ -26,6 +26,8 @@
         gaps_out = 20;
 
         resize_on_border = true;
+        "col.active_border" = "0xFFA7C080";
+        "col.inactive_border" = "0xFF4854E";
       };
 
       decoration = {
