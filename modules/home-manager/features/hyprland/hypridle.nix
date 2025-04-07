@@ -25,7 +25,7 @@
           on-timeout = "loginctl lock-session";
         }
         {
-          timeout = 330;
+          timeout = 400;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
         }

@@ -21,7 +21,7 @@ in
       }
       {
         label = "logout";
-        action = "loginctl terminate-user $USER";
+        action = "loginctl kill-session $XDG_SESSION_ID";
         keybind = "e";
       }
       {
@@ -44,14 +44,14 @@ in
       }
 
       window {
-        background-color: rgba(12, 12, 12, 0.5);
+        background-color: rgba(35, 42, 46, 0.5);
       }
 
       button {
         border-radius: 20;
-        border-color: rgba(242,243,244,0.2);
+        border-color: rgba(211,198,170,0.2);
         color: rgba(242,243,244,0.75);
-        background-color: rgba(12,12,12,0.9);
+        background-color: rgba(41,49,54,0.9);
         border-style: solid;
         border-width: 1px;
         background-repeat: no-repeat;
@@ -64,7 +64,7 @@ in
       }
 
       button:focus, button:active, button:hover {
-        border-color: white;
+        border-color: rgba(131, 192, 146, 1);
         outline-style: none;
       }
 

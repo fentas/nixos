@@ -5,7 +5,10 @@
 
     borderRadius = 10;
     defaultTimeout = 5000;
-    backgroundColor = "#00000080";
-    textColor = "#FFFFFFFF";
+    backgroundColor = "#1E232680";
+    borderColor = "#A7C08080";
+    textColor = "#D3C6AAFF";
+
+    font = "FiraCode Nerd Font";
   };
 }

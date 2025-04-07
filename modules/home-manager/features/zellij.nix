@@ -6,17 +6,17 @@
       theme = "custom";
 
       themes.custom = {
-        fg = "#676767";
-        bg = "#171717";
-        black = "#171717";
-        red = "#ab4242";
-        green = "#8fa958";
-        yellow = "#f4be74";
-        blue = "#699eb4";
-        magenta = "#aa749e";
-        cyan = "#74b4aa";
-        white = "#f8f8f8";
-        orange = "#c45555";
+        fg = "#D3C6AA";
+        bg = "#272E33";
+        black = "#414b50";
+        red = "#e67e80";
+        green = "#a7c08";
+        yellow = "#dbbc7f";
+        blue = "#7fbbb3";
+        magenta = "d699b6";
+        cyan = "#83c092";
+        white = "#d3c6aa";
+        orange = "#e69875";
       };
     };
   };

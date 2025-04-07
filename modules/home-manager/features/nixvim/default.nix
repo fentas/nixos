@@ -17,12 +17,13 @@
     enableMan = true;
 
     colorschemes = {
-      rose-pine = {
+      everforest = {
         enable = true;
         settings = {
-          styles = {
-            italic = false;
-          };
+          background = "medium";
+          enable_italic = 1;
+          dim_inactive_windows = 1;
+          transparent_background = 1;
         };
       };
     };

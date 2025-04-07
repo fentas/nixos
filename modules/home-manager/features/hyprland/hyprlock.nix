@@ -27,13 +27,13 @@
         dots_spacing = 0.35;
         dots_center = true;
         outer_color = "rgba(0,0,0,0)";
-        inner_color = "rgba(242,243,244,0.2)";
-        font_color = "$foreground";
+        inner_color = "rgba(211,198,170,0.2)";
+        font_color = "rgba(41, 49, 54, 1)";
         fade_on_empty = false;
         rounding = -1;
-        check_color = "rgb(204,136,34)";
-        fail_color = "rgb(204, 34, 34, 1.0)";
-        placeholder_text = "<i><span foreground=\"##cdd6f4\">Password...</span></i>";
+        check_color = "rgb(230,152,117)";
+        fail_color = "rgb(230, 126, 128)";
+        placeholder_text = "<i><span foreground=\"##293136\">Password...</span></i>";
         hide_input = false;
         position = "0, -200";
         halign = "center";
@@ -44,7 +44,7 @@
         {
           monitor = "";
           text = "cmd[update:1000] echo \"\$(date +\"%A, %B %d\")\"";
-          color = "rgba(242, 243, 244, 0.75)";
+          color = "rgba(211, 198, 170, 0.75)";
           font_size = 22;
           position = "0,300";
           halign = "center";
@@ -53,7 +53,7 @@
         {
           monitor = "";
           text = "cmd[update:1000] echo \"\$(date +\"%-I:%M\")\"";
-          color = "rgba(242, 243, 244, 0.75)";
+          color = "rgba(211, 198, 170, 0.75)";
           font_size = 95;
           position = "0,200";
           halign = "center";
@@ -62,7 +62,7 @@
         {
           monitor = "";
           text = "cmd[update:1000] echo \"\$(whoami)\"";
-          color = "$foreground";
+          color = "rgba(211, 198, 170, 0.75)";
           font_size = 14;
           position = "0,-10";
           halign = "center";
@@ -76,7 +76,7 @@
           path = "${../../../../users/sam/profile.png}";
           size = 75;
           border_size = 2;
-          border_color = "$foreground";
+          border_color = "rgb(77, 89, 96)";
           rounding = -1;
           position = "0, -100";
           halign = "center";

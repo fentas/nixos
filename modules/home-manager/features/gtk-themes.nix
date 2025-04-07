@@ -10,13 +10,13 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita-dark";
+      package = pkgs.everforest-gtk-theme;
+      name = "Everforest-Dark-B-LB";
     };
 
     iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.everforest-gtk-theme;
+      name = "Everforest-Dark";
     };
 
     font = {

@@ -10,7 +10,7 @@
       "$mod" = "SUPER";
       "$terminal" = "uwsm app -- alacritty";
       "$fileManager" = "uwsm app -- nautilus";
-      "$menu" = "uwsm app -- wofi --show drun";
+      "$menu" = "uwsm app -- $(wofi --show=drun --define=drun-print_desktop_file=true)";
 
       exec-once = [
         "uwsm app -- udiskie"
@@ -31,7 +31,14 @@
       decoration = {
         rounding = 10;
         rounding_power = 2;
+        blur = {
+          enabled = true;
+          size = 16;
+          passes = 1;
+          xray = true;
+        };
       };
+      
 
       animations = {
         enabled = "yes, please :)";

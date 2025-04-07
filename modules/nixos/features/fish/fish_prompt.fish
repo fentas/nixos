@@ -25,14 +25,14 @@ function fish_prompt
   end
 
   function __vcs_section
-    string join '' -- (set_color black) (fish_vcs_prompt " ") (set_color brcyan -b black) ''
+    string join '' -- (set_color black) (fish_vcs_prompt " ") (set_color brcyan -b normal) ''
   end
 
   function __status_section
     if test $transient_pipestatus[-1] -eq 0;
       return
     else
-      string join '' -- (set_color red) '' (set_color white -b red) ' ' $transient_pipestatus ' ' (set_color red -b black) ''
+      string join '' -- (set_color red) '' (set_color white -b red) ' ' $transient_pipestatus ' ' (set_color red -b normal) ''
     end
   end
 
@@ -63,7 +63,7 @@ function fish_prompt
   end
 
 
-  echo -en (__mode_section)(set_color cyan -b black)"❯ "(set_color normal)
+  echo -en (__mode_section)(set_color cyan -b normal)"❯ "(set_color normal)
 end
 
 
