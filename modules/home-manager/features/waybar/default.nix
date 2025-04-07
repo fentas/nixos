@@ -61,7 +61,7 @@
         clock = {
           format = "󰥔 {:%I:%M p}";
           format-alt = "󰃮 {:%Y-%m-%d}";
-          tooltim-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           calendar = {
             mode = "month";
             mode-mon-col = 3;
