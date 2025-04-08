@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   myNixOS = {
     bundles.main.enable = true;
@@ -14,4 +14,10 @@
     networking.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
   };
+
+  environment.systemPackages = with pkgs; [
+    qpwgraph
+  ];
+
+  programs.partition-manager.enable = true;
 }

@@ -11,6 +11,7 @@
     fd
     ripgrep
     clang
+    neovide
 
     # Git
     git
@@ -24,15 +25,7 @@
 
     # nice to have a scripting language
     python312
-
-    # Nix stuff
-    nil
-    alejandra
-
     chromium
-
-    neovide
-
     unrar
   ];
 

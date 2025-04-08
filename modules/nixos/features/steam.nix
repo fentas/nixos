@@ -3,23 +3,20 @@
 {
   environment.systemPackages = with pkgs; [
     mangohud
-    protonup-qt
+    protonplus
     protontricks
 
-    lutris
-    wineWowPackages.stable
+    (lutris.override {
+      extraPkgs = p: [
+        p.wineWowPackages.full
+        p.winetricks
+      ];
+    })
 
     r2modman
 
     # dependencies for steamtinkerlaunch
-    gawk
-    unzip
-    wget
-    xdotool
-    xorg.xprop
-    unixtools.xxd
-    xorg.xwininfo
-    yad
+    steamtinkerlaunch
   ];
 
   programs.steam = {

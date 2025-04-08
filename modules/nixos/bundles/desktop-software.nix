@@ -11,13 +11,10 @@
 
     bottles
 
-    qpwgraph
-
     thunderbird-latest
 
     qalculate-gtk
   ];
 
-  programs.partition-manager.enable = true;
 
 }
