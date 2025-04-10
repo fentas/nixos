@@ -78,6 +78,9 @@
 
         "$mod SHIFT, s, exec, hyprshot -m region -o ~/Pictures/Screenshots"
 
+        "alt, tab, exec, hyprswitch gui --mod-key alt --key tab --close mod-key-release --reverse-key=mod=shift"
+        "alt SHIFT, tab, exec, hyprswitch gui --mod-key alt --key tab --close mod-key-release --reverse-key=mod=shift"
+
       ] ++ (
         builtins.concatLists (builtins.genList (i:
           let ws = 1 + i;

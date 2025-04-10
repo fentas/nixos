@@ -34,6 +34,21 @@
     };
   };
 
+  # Start hyprland with systemd since we are using uwsm :)
+  systemd.user.services.hyprswitch = {
+    description = "Hyprswitch App Switcher GUI";
+    partOf = ["graphical-session.target"];
+    wantedBy = ["graphical-session.target"];
+    after = ["graphical-session.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.hyprswitch}/bin/hyprswitch init";
+      Slice = "session.slice";
+      TimeoutStopSec="5sec";
+      Restart="on-failure";
+    };
+  };
+  
+
   services.xserver = {
     xkb = {
       layout = lib.mkDefault "us";
@@ -44,10 +59,16 @@
   services.gvfs.enable = true;
 
   environment.systemPackages = with pkgs; [
-    hyprpolkitagent
+    hyprpolkitagent #TODO: likely move to separate feature
     brightnessctl
     udiskie
     qt6ct
+    hyprswitch #TODO: likely move to separate feature
+
+    kdePackages.breeze
+    libsForQt5.breeze-qt5
+    kdePackages.breeze-icons
+    libsForQt5.breeze-icons
   ];
 
   environment.sessionVariables = {

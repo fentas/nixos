@@ -4,6 +4,7 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     corefonts
+    noto-fonts
   ];
 
   fonts.enableDefaultPackages = true;
