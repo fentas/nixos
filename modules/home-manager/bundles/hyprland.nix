@@ -7,5 +7,6 @@
     wlogout.enable = true;
     wofi.enable = true;
     waybar.enable = true;
+    hyprswitch.enable = true;
   };
 }

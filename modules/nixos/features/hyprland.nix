@@ -34,21 +34,6 @@
     };
   };
 
-  # Start hyprland with systemd since we are using uwsm :)
-  systemd.user.services.hyprswitch = {
-    description = "Hyprswitch App Switcher GUI";
-    partOf = ["graphical-session.target"];
-    wantedBy = ["graphical-session.target"];
-    after = ["graphical-session.target"];
-    serviceConfig = {
-      ExecStart = "${pkgs.hyprswitch}/bin/hyprswitch init";
-      Slice = "session.slice";
-      TimeoutStopSec="5sec";
-      Restart="on-failure";
-    };
-  };
-  
-
   services.xserver = {
     xkb = {
       layout = lib.mkDefault "us";

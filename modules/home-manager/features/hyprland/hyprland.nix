@@ -14,6 +14,7 @@
 
       exec-once = [
         "uwsm app -- udiskie"
+        "uwsm app -- hyprswitch init --custom-css ~/.config/hyprswitch/style.css"
       ];
 
       monitor = [
@@ -40,7 +41,6 @@
           #xray = true;
         };
       };
-      
 
       animations = {
         enabled = "yes, please :)";
@@ -108,6 +108,8 @@
         "ignorezero, wofi"
         "blur, notifications"
         "ignorezero, notifications"
+        "ignorezero, hyprswitch"
+        "blur, hyprswitch"
       ];
 
       misc = {

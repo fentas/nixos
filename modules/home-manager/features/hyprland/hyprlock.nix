@@ -1,11 +1,6 @@
-{ config, lib, ... }:
+{ ... }:
 {
-  options = with lib; with types; {
-    default_monitor = mkOption { type = str; };
-  };
-
-
-  config.programs.hyprlock = {
+  programs.hyprlock = {
     enable = true;
     package = null;
     settings = {
