@@ -114,9 +114,9 @@ in rec {
             configExtension = moduleSpecificConfig: config: (
               lib.mkIf (
                 ( if enableModulePath == null then true
-                  else lib.attrsets.getAttrFromPath enableModulePath config
+                  else lib.attrsets.getAttrFromPath enableModulePath false config
                 ) &&
-                (lib.attrsets.getAttrFromPath enableOptionPath config)
+                (lib.attrsets.getAttrFromPath enableOptionPath false config)
               )
               moduleSpecificConfig
             );

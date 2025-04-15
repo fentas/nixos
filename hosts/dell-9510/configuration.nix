@@ -9,7 +9,7 @@
 
   myNixOS = {
     nvidiagpu.enable = true;
-    desktop.hyprland.enable = true;
+    desktops.hyprland.enable = true;
 
     qemu.enable = true;
     fish.enable = true;

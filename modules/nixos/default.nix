@@ -3,6 +3,22 @@
   options.myNixOS = {
     system.enable = lib.mkOption { type = lib.types.bool; default = true; description = "Disable all."; };
     pkgs.enable = lib.mkOption { type = lib.types.bool; default = true; description = "Disable all."; };
+  
+    users = lib.mkOption {
+      type = lib.types.attrsOf (lib.types.submodule {
+        options = {
+          userConfig = lib.mkOption {
+            type = lib.types.path;
+            description = "(required) Path to the Home Manager configuration file for this user.";
+            example = "/path/to/some/user/home.nix";
+          };
+          userSettings = lib.mkOption {
+            default = {};
+          };
+        };
+      });
+      default = {};
+    };
   };
 
   imports =
