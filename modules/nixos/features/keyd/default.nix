@@ -6,7 +6,7 @@
 
   # add keyd group to all users
   imports = [ (mylib.addGroupsToNormalUsers [ "keyd" ]) ];
-  config.users.groups.keyd = {}
+  config.users.groups.keyd = {};
 
   services.keyd = {
     enable = true;

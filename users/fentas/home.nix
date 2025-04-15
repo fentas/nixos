@@ -8,9 +8,9 @@
   myHomeManager = {
     bundles.general.enable = true;
     bundles.desktopitems.enable = true;
-
     bundles.hyprland.enable = true;
 
+    enhanced.enable = true;
     alacritty.enable = true;
     nixvim.enable = true;
     fastfetch.enable = true;

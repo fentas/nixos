@@ -1,16 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-  imports = [
-    ./system/bluetooth.nix
-    ./system/fonts.nix
-    ./system/grub.nix
-    ./system/locale.nix
-    ./system/networking.nix
-    ./system/nix.nix
-    ./system/printer.nix
-    ./system/users.nix
-  ];
-
   programs = {
     neovim = {
       enable = true;

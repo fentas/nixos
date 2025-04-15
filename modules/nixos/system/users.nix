@@ -15,10 +15,6 @@
           description = "(required) Path to the Home Manager configuration file for this user.";
           example = "/path/to/some/user/home.nix";
         };
-
-        lib.mkOption {
-          default = ../../../users/fentas/home.nix;
-        };
         userSettings = lib.mkOption {
           default = {};
         };

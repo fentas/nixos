@@ -36,6 +36,11 @@
       url = "gitlab:doronbehar/nix-xilinx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    enhancd = {
+      url = "github:babarot/enhancd";
+      flake = false;
+    };
   };
 
   outputs = { ... } @ inputs:

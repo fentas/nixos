@@ -1,0 +1,6 @@
+{ ... }:
+{
+  myHomeManager = {
+    enhanced.enable = true;
+  };
+}

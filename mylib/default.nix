@@ -1,11 +1,14 @@
+# Library helper functions adapted from Goxore/nixconf
 {inputs}: let
   mylib = (import ./default.nix) {inherit inputs;};
+  pkgs-stable = import inputs.nixpkgs-stable { inherit system; config.allowUnfree = true;};
+  userHelpers = import ./users.nix { inherit lib; };
+  
   outputs = inputs.self.outputs;
   system = "x86_64-linux";
-  pkgs-stable = import inputs.nixpkgs-stable { inherit system; config.allowUnfree = true;};
+  lib = inputs.nixpkgs.lib;
 in rec {
-
-  # Library helper functions adapted from Goxore/nixconf
+  inherit (userHelpers) addGroupsToNormalUsers;
 
   # Get the packages for a specific system (ex. "x86_64-linux")
   pkgsFor = sys: inputs.nixpkgs.legacyPackages.${sys};
@@ -78,9 +81,9 @@ in rec {
 
       config =
         if builtins.hasAttr "configExtension" args
-        then (args.configExtension (eval.config or evalNoImports))
+        then (args.configExtension (eval.config or evalNoImports) margs.config)
         else (eval.config or evalNoImports);
-          };
+    };
 
   extendModules = {
     dir,                # Directory to scan (e.g., ./features)
@@ -89,9 +92,7 @@ in rec {
     default ? false     # Default for the .enable flag
   }:
     let
-      getCategoryEnablePath =
-        if prefix == [] then null
-        else (root ++ prefix ++ ["enable"]);
+      enableModulePath = if prefix == [] then null else (root ++ prefix ++ ["enable"]);
       processModuleFile = f: 
         let
           name = fileNameOf f; # "desktop"
@@ -106,14 +107,14 @@ in rec {
               enableOptionPath
               (lib.mkOption {
                 type = lib.types.bool;
-                default = default; lib.mkIf (lib.attrsets.setAttrByPath root ++ prefix ++ ["enable"])
+                default = default;
                 description = "enable the ${descString} configuration";
               });
 
-            configExtension = moduleSpecificConfig: (
+            configExtension = moduleSpecificConfig: config: (
               lib.mkIf (
-                ( if categoryEnablePathForCurrent == null then true
-                  else lib.attrsets.getAttrFromPath categoryEnablePathForCurrent config
+                ( if enableModulePath == null then true
+                  else lib.attrsets.getAttrFromPath enableModulePath config
                 ) &&
                 (lib.attrsets.getAttrFromPath enableOptionPath config)
               )

@@ -1,4 +1,4 @@
-{ config, mylib, ... }:
+{ config, lib, mylib, ... }:
 {
   options.myNixOS = {
     system.enable = lib.mkOption { type = lib.types.bool; default = true; description = "Disable all."; };
