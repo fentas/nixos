@@ -9,7 +9,7 @@
     (mylib.extendModules { dir = ./features; }) ++
     (mylib.extendModules { dir = ./desktops; prefix = ["desktops"]; }) ++
     (mylib.extendModules { dir = ./pkgs;     prefix = ["pkgs"]; default = true; }) ++
-    (mylib.extendModules { dir = ./system;   prefix = ["system"]; default = true; });
+    (mylib.extendModules { dir = ./system;   prefix = ["system"]; default = false; });
 
   config = {
     nix.settings.experimental-features = ["nix-command" "flakes"];
