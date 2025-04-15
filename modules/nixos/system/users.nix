@@ -23,8 +23,8 @@
     default = {};
   };
 
-  config = {
-    home-manager = {
+  config = { 
+    /*home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
 
@@ -42,7 +42,7 @@
           ];
         })
         (config.myNixOS.users);
-    };
+    };*/
 
     users.users = builtins.mapAttrs (
       name: user:
