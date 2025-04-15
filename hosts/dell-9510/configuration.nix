@@ -44,4 +44,11 @@
       enableOffloadCmd = true;
     };
   };
+  boot.loader.grub = {
+    enable = true;
+    devices = [ "/dev/nvme0n1" ];
+    efiSupport = true;
+    useOSProber = false;
+  };
+  boot.loader.efi.canTouchEfiVariables = true; 
 }

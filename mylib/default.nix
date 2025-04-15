@@ -2,14 +2,11 @@
 {inputs}: let
   mylib = (import ./default.nix) {inherit inputs;};
   pkgs-stable = import inputs.nixpkgs-stable { inherit system; config.allowUnfree = true;};
-  userHelpers = import ./users.nix { inherit lib; };
   
   outputs = inputs.self.outputs;
   system = "x86_64-linux";
   lib = inputs.nixpkgs.lib;
 in rec {
-  inherit (userHelpers) addGroupsToNormalUsers;
-
   # Get the packages for a specific system (ex. "x86_64-linux")
   pkgsFor = sys: inputs.nixpkgs.legacyPackages.${sys};
 
@@ -125,47 +122,17 @@ in rec {
         # Return list of processed module functions
         map processModuleFile (filesIn dir);
 
-
-
-  # extendModules = {
-  #   dir,                # Directory to scan (e.g., ./features)
-  #   root, # Base path for options (e.g., ["myNixOS"] or ["myHomeManager"])
-  #   prefix ? [],        # Sub-path within root (e.g., [] or ["pkgs"])
-  #   default ? false     # Default for the .enable flag
-  # }:
-  #   let
-  #     processModuleFile = f: 
-  #       let
-  #         name = fileNameOf f;
-  #         # e.g., ["myHomeManager", "pkgs", "git", "enable"]
-  #         enableOptionPath = prefix ++ [name] ++ ["enable"];
-  #         # e.g., "myHomeManager.pkgs.git"
-  #         descString = lib.concatStringsSep "." (prefix ++ [name]);
-
-  #         # Define the specific extensions for this scheme
-  #         moduleExtensions = {
-  #           extraOptions = lib.attrsets.setAttrByPath
-  #             enableOptionPath
-  #             (lib.mkEnableOption "enable the ${name} module bundle");
-  #             # (lib.mkOption {
-  #             #   type = lib.types.bool;
-  #             #   default = default;
-  #             #   description = "enable the ${descString} configuration";
-  #             # });
-
-  #           configExtension = moduleSpecificConfig: cconfig:
-  #             lib.mkIf 
-  #               # root.bundles.${name}.enable
-  #               (lib.attrsets.getAttrFromPath enableOptionPath false root)
-  #               moduleSpecificConfig;
-  #         };
-  #       in
-  #       # Use the core 'extendModule' to apply these extensions to the file path 'f'
-  #       extendModule (moduleExtensions // { path = f; }); # Returns the final module function
-
-  #   in 
-  #   # Return list of processed module functions
-  #   map processModuleFile (filesIn dir);
+  addGroups = config: groups: lib.mapAttrs' (userName: userDefFromMyNixOS: {
+    # userDefFromMyNixOS is the value from config.myNixOS.users.${userName}
+    name = userName; # The user to apply config to
+    value = {
+      # Define ONLY the extraGroups attribute to be merged
+      extraGroups = groups;
+      # You could add an mkIf here based on userDefFromMyNixOS if needed, e.g.:
+      # extraGroups = lib.mkIf (userDefFromMyNixOS.userSettings.isNormalUser or true) [ "keyd" ];
+      # But often simpler to just add it and rely on standard user definition elsewhere.
+    };
+  }) config.myNixOS.users;
 
   # forAllSystems = pkgs:
   #   inputs.nixpkgs.lib.genAttrs [

@@ -32,10 +32,10 @@
     };
 
     # For installing Vivado/Vitis if required.
-    # nix-xilinx = {
-    #   url = "gitlab:doronbehar/nix-xilinx";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nix-xilinx = {
+      url = "gitlab:doronbehar/nix-xilinx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     enhancd = {
       url = "github:babarot/enhancd";
