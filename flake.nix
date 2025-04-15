@@ -26,7 +26,7 @@
     };
 
     # Wrapper for nvchad (neovim)
-    nvchad = {
+    nvchad4nix = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };

@@ -1,7 +1,4 @@
 { config, lib, mylib, ... }:
-let
-  cfg = config.myNixOS;
-in
 {
   options.myNixOS = {
     system.enable = lib.mkOption { type = lib.types.bool; default = true; description = "Disable all."; };
@@ -27,12 +24,8 @@ in
   imports =
     (mylib.extendModules { dir = ./features; }) ++
     (mylib.extendModules { dir = ./desktops; prefix = ["desktops"]; }) ++
-    # (lib.optionals config.myNixOS.pkgs.enable (
-      (mylib.extendModules { dir = ./pkgs;     prefix = ["pkgs"];     default = true; }) ++
-    # )) ++
-    # (lib.optionals config.myNixOS.system.enable (
-      (mylib.extendModules { dir = ./system;   prefix = ["system"];   default = true; });
-    # ));
+    (mylib.extendModules { dir = ./pkgs;     prefix = ["pkgs"];     default = true; }) ++
+    (mylib.extendModules { dir = ./system;   prefix = ["system"];   default = true; });
 
   config = {
     nix.settings.experimental-features = ["nix-command" "flakes"];

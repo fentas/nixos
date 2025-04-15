@@ -12,7 +12,8 @@
     desktops.hyprland.enable = true;
 
     qemu.enable = true;
-    fish.enable = true;
+    bash.enable = true;
+    nvchad.enable = true;
 
     pkgs = {
       core.enable = true;
