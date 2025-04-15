@@ -43,8 +43,8 @@ jobs:
         # 'activationPackage' is the typical output to build for HM.
         run: nix build .#homeConfigurations.fentas.activationPackage --show-trace --print-build-logs
 
-  update-and-pr:
-    name: Update Flake Lock & Create PR
+  update:
+    name: Update Flake Lock
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
