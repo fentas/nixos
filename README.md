@@ -26,11 +26,9 @@ More rambling can be found in `./docs`. This contains the ramblings of a beginne
  - Nixify as much as reasonably possible. Of course, it is sometimes easier to just include a local file (css files for styling, for example).
  - Don't delete old modules. I could easily switch back to them later!
 
-## Inspiration
+## Fork
 
- - Vimjoyer (pretty much lifted the library functions from here)
- - EmergentMind
- - Wil Taylor
-
+Forked from https://github.com/Sw3d15h-F1s4/nixos
 
 Suggestions are always welcome! Feel free to open an issue to ask questions too, but beware I am a linux noob.
+
