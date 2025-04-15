@@ -36,7 +36,8 @@ jobs:
         # --show-trace provides detailed logs on error.
         # --print-build-logs shows build output (useful for debugging build failures).
         # We build the 'toplevel' system derivation to avoid check issues.
-        run: nix build .#nixosConfigurations.dell-9510.config.system.build.toplevel --show-trace --print-build-logs
+        # run: nix build .#nixosConfigurations.dell-9510.config.system.build.toplevel --show-trace --print-build-logs
+        run: nix flake check --extra-experimental-features "nix-command flakes" --show-trace
 
       - name: Build Home Manager Configuration
         # Also validates the home-manager configuration can be built.
