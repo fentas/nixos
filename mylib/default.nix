@@ -85,49 +85,87 @@ in rec {
         else (eval.config or evalNoImports);
     };
 
-  extendModules = {
-    dir,                # Directory to scan (e.g., ./features)
-    root ? ["myNixOS"], # Base path for options (e.g., ["myNixOS"] or ["myHomeManager"])
-    prefix ? [],        # Sub-path within root (e.g., [] or ["pkgs"])
-    default ? false     # Default for the .enable flag
-  }:
-    let
-      enableModulePath = if prefix == [] then null else (root ++ prefix ++ ["enable"]);
-      processModuleFile = f: 
-        let
-          name = fileNameOf f; # "desktop"
-          # e.g., ["myHomeManager", "pkgs", "git", "enable"]
-          enableOptionPath = root ++ prefix ++ [name] ++ ["enable"];
-          # e.g., "myHomeManager.pkgs.git"
-          descString = lib.concatStringsSep "." (root ++ prefix ++ [name]);
+    extendModules = {
+      dir,                # Directory to scan (e.g., ./features)
+      root ? ["myNixOS"], # Base path for options (e.g., ["myNixOS"] or ["myHomeManager"])
+      prefix ? [],        # Sub-path within root (e.g., [] or ["pkgs"])
+      default ? false     # Default for the .enable flag
+    }:
+      let
+        enableModulePath = root ++ prefix ++ ["enabled"];
+        processModuleFile = f: 
+          let
+            name = fileNameOf f;
+            # e.g., ["myHomeManager", "pkgs", "git", "enable"]
+            enableOptionPath = root ++ prefix ++ [name] ++ ["enable"];
+            descString = lib.concatStringsSep "." (root ++ prefix ++ [name]);
 
-          # Define the specific extensions for this scheme
-          moduleExtensions = {
-            extraOptions = lib.attrsets.setAttrByPath
-              enableOptionPath
-              (lib.mkOption {
-                type = lib.types.bool;
-                default = default;
-                description = "enable the ${descString} configuration";
-              });
+            # Define the specific extensions for this scheme
+            moduleExtensions = {
+              extraOptions = lib.attrsets.setAttrByPath
+                enableOptionPath
+                (lib.mkOption {
+                  type = lib.types.bool;
+                  default = default;
+                  description = "enable the ${descString} configuration";
+                });
 
-            configExtension = moduleSpecificConfig: config: (
-              lib.mkIf (
-                ( if enableModulePath == null then true
-                  else lib.attrsets.getAttrFromPath enableModulePath false config
-                ) &&
-                (lib.attrsets.getAttrFromPath enableOptionPath false config)
-              )
-              moduleSpecificConfig
-            );
-          };
-        in
-        # Use the core 'extendModule' to apply these extensions to the file path 'f'
-        extendModule (moduleExtensions // { path = f; }); # Returns the final module function
+              configExtension = moduleSpecificConfig: cconfig:
+                lib.mkIf 
+                  (
+                    ( lib.attrByPath enableModulePath false cconfig ) &&
+                    ( lib.attrByPath enableOptionPath false cconfig )
+                  )
+                  moduleSpecificConfig;
+            };
+          in
+            # Use the core 'extendModule' to apply these extensions to the file path 'f'
+            extendModule (moduleExtensions // { path = f; }); # Returns the final module function
+      in 
+        # Return list of processed module functions
+        map processModuleFile (filesIn dir);
 
-    in 
-    # Return list of processed module functions
-    map processModuleFile (filesIn dir);
+
+
+  # extendModules = {
+  #   dir,                # Directory to scan (e.g., ./features)
+  #   root, # Base path for options (e.g., ["myNixOS"] or ["myHomeManager"])
+  #   prefix ? [],        # Sub-path within root (e.g., [] or ["pkgs"])
+  #   default ? false     # Default for the .enable flag
+  # }:
+  #   let
+  #     processModuleFile = f: 
+  #       let
+  #         name = fileNameOf f;
+  #         # e.g., ["myHomeManager", "pkgs", "git", "enable"]
+  #         enableOptionPath = prefix ++ [name] ++ ["enable"];
+  #         # e.g., "myHomeManager.pkgs.git"
+  #         descString = lib.concatStringsSep "." (prefix ++ [name]);
+
+  #         # Define the specific extensions for this scheme
+  #         moduleExtensions = {
+  #           extraOptions = lib.attrsets.setAttrByPath
+  #             enableOptionPath
+  #             (lib.mkEnableOption "enable the ${name} module bundle");
+  #             # (lib.mkOption {
+  #             #   type = lib.types.bool;
+  #             #   default = default;
+  #             #   description = "enable the ${descString} configuration";
+  #             # });
+
+  #           configExtension = moduleSpecificConfig: cconfig:
+  #             lib.mkIf 
+  #               # root.bundles.${name}.enable
+  #               (lib.attrsets.getAttrFromPath enableOptionPath false root)
+  #               moduleSpecificConfig;
+  #         };
+  #       in
+  #       # Use the core 'extendModule' to apply these extensions to the file path 'f'
+  #       extendModule (moduleExtensions // { path = f; }); # Returns the final module function
+
+  #   in 
+  #   # Return list of processed module functions
+  #   map processModuleFile (filesIn dir);
 
   # forAllSystems = pkgs:
   #   inputs.nixpkgs.lib.genAttrs [

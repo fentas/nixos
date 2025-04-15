@@ -6,5 +6,5 @@
     vitis_hls
   ];
 
-  # nixpkgs.overlays = [] ++ [ inputs.nix-xilinx.overlay ];
+  nixpkgs.overlays = [] ++ [ inputs.nix-xilinx.overlay ];
 }

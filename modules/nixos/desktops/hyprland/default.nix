@@ -32,10 +32,11 @@
     hyprlock = {
       enable = true;
     };
-    qt = {
-      enable = true;
-      platformTheme = "qt5ct";
-    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
   };
 
   services = {

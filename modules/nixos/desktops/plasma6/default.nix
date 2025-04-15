@@ -7,19 +7,15 @@
     qpwgraph
   ];
 
-  services = {
-    xserver = {
-      # enable = lib.mkDefault true;
-      xkb = {
-        layout = lib.mkDefault "us";
-        variant = lib.mkDefault "";
-      };
-    };
-    desktopManager = {
-      plasma6.enable = true;
-      sddm.wayland.enable = lib.mkDefault true;
+  services.xserver = {
+    # enable = lib.mkDefault true;
+    xkb = {
+      layout = lib.mkDefault "us";
+      variant = lib.mkDefault "";
     };
   };
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.wayland.enable = lib.mkDefault true;
 
   programs.partition-manager.enable = true;
 }
