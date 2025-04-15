@@ -1,20 +1,14 @@
-# Miscellaneous desktop-oriented graphical software.
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    # discord
     (discord.override {
       withVencord = true;
       withOpenASAR = true;
     })
     vesktop
-    prismlauncher
 
+    # wine
     bottles
-
-    thunderbird-latest
-
-    qalculate-gtk
   ];
-
-
 }

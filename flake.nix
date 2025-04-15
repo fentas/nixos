@@ -1,5 +1,5 @@
 {
-  description = "Sam's NixOS Config";
+  description = "fentas nixos";
 
   inputs = {
 
@@ -19,21 +19,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Imports a flake for the anime games.
-    aagl = {
-     url = "github:ezKEa/aagl-gtk-on-nix";
-     inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Manages neovim through home-manager modules
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # For installing MATLAB if required.
-    nix-matlab = {
-      url = "gitlab:doronbehar/nix-matlab";
+    # Wrapper for nvchad (neovim)
+    nvchad = {
+      url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -50,12 +44,11 @@
   in 
    with mylib; {
     nixosConfigurations = {
-      desktop = mkSystem ./hosts/desktop/configuration.nix;
-      laptop = mkSystem ./hosts/laptop/configuration.nix;
+      dell-9510 = mkSystem ./hosts/dell-9510/configuration.nix;
     };
 
     homeConfigurations = {
-      sam = mkHome ./users/sam/home.nix;
+      fentas = mkHome ./users/fentas/home.nix;
     };
 
     homeManagerModules.default = ./modules/home-manager;

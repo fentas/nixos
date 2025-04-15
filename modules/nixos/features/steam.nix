@@ -18,21 +18,18 @@
     # dependencies for steamtinkerlaunch
     steamtinkerlaunch
   ];
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
-  programs.gamescope = {
-    enable = true;
-  };
-
-  programs.gamemode.enable = true;
-
   #TODO: don't have a hardcoded path!
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/sam/.steam/root/compatibilitytools.d";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/fentas/.steam/root/compatibilitytools.d";
+  };
+
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    gamescope.enable = true;
+    gamemode.enable = true;
   };
 }

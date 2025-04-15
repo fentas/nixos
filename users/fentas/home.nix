@@ -2,8 +2,8 @@
 {
   imports = [outputs.homeManagerModules.default];
 
-  programs.git.userName = "Sw3d15h-F1s4";
-  programs.git.userEmail = "samjt36@gmail.com";
+  programs.git.userName = "fentas";
+  programs.git.userEmail = "jan.guth@gmail.com";
 
   myHomeManager = {
     bundles.general.enable = true;
@@ -17,11 +17,9 @@
     zellij.enable = true;
   };
 
-
   home = {
-    username = "sam";
-    homeDirectory = lib.mkDefault "/home/sam";
+    username = "fentas";
+    homeDirectory = lib.mkDefault "/home/fentas";
     stateVersion = "23.11";
-
   };
 }

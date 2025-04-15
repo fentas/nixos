@@ -1,5 +1,13 @@
 { pkgs, ...}:
 {
+  environment.systemPackages = with pkgs; [
+    alsa-utils
+    # control panel
+    pwvucontrol
+    # gui
+    helvum
+  ];
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -58,8 +66,4 @@
       # };
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    alsa-utils
-  ];
 }

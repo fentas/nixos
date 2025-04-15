@@ -16,6 +16,7 @@ in rec {
       inherit system;
       specialArgs = {
         inherit inputs outputs mylib pkgs-stable;
+        self = inputs.self;
       };
       modules = [
         config
@@ -29,6 +30,7 @@ in rec {
       pkgs = pkgsFor system;
       extraSpecialArgs = {
         inherit inputs outputs mylib;
+        self = inputs.self;
       };
       modules = [
         config
@@ -80,12 +82,51 @@ in rec {
         else (eval.config or evalNoImports);
           };
 
-  extendModules = extension: modules:
-    map
-    (f: let
-      name = fileNameOf f;
-    in (extendModule ((extension name) // {path = f;})))
-    modules;
+  extendModules = {
+    dir,                # Directory to scan (e.g., ./features)
+    root ? ["myNixOS"], # Base path for options (e.g., ["myNixOS"] or ["myHomeManager"])
+    prefix ? [],        # Sub-path within root (e.g., [] or ["pkgs"])
+    default ? false     # Default for the .enable flag
+  }:
+    let
+      getCategoryEnablePath =
+        if prefix == [] then null
+        else (root ++ prefix ++ ["enable"]);
+      processModuleFile = f: 
+        let
+          name = fileNameOf f; # "desktop"
+          # e.g., ["myHomeManager", "pkgs", "git", "enable"]
+          enableOptionPath = root ++ prefix ++ [name] ++ ["enable"];
+          # e.g., "myHomeManager.pkgs.git"
+          descString = lib.concatStringsSep "." (root ++ prefix ++ [name]);
+
+          # Define the specific extensions for this scheme
+          moduleExtensions = {
+            extraOptions = lib.attrsets.setAttrByPath
+              enableOptionPath
+              (lib.mkOption {
+                type = lib.types.bool;
+                default = default; lib.mkIf (lib.attrsets.setAttrByPath root ++ prefix ++ ["enable"])
+                description = "enable the ${descString} configuration";
+              });
+
+            configExtension = moduleSpecificConfig: (
+              lib.mkIf (
+                ( if categoryEnablePathForCurrent == null then true
+                  else lib.attrsets.getAttrFromPath categoryEnablePathForCurrent config
+                ) &&
+                (lib.attrsets.getAttrFromPath enableOptionPath config)
+              )
+              moduleSpecificConfig
+            );
+          };
+        in
+        # Use the core 'extendModule' to apply these extensions to the file path 'f'
+        extendModule (moduleExtensions // { path = f; }); # Returns the final module function
+
+    in 
+    # Return list of processed module functions
+    map processModuleFile (filesIn dir);
 
   # forAllSystems = pkgs:
   #   inputs.nixpkgs.lib.genAttrs [

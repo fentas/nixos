@@ -4,13 +4,13 @@
     {
       event = "TextYankPost";
       desc = "Highlight when yanking text";
-      group = "sam-autocmd";
+      group = "fentas-autocmd";
       callback.__raw = "function() vim.highlight.on_yank() end";
     }
   ];
 
   programs.nixvim.autoGroups = {
-    sam-autocmd = {
+    fentas-autocmd = {
       clear = true;
     };
   };

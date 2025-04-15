@@ -68,7 +68,7 @@
       image = [
         {
           monitor = "";
-          path = "${../../../../users/sam/profile.png}";
+          path = "${../../../../users/fentas/profile.jpeg}";
           size = 75;
           border_size = 2;
           border_color = "rgb(77, 89, 96)";
