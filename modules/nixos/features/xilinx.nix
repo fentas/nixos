@@ -1,10 +1,10 @@
 {  pkgs, inputs, ...}:
 {
-  environment.systemPackages = with pkgs; [
-    vivado
-    vitis
-    vitis_hls
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   vivado
+  #   vitis
+  #   vitis_hls
+  # ];
 
-  nixpkgs.overlays = [] ++ [ inputs.nix-xilinx.overlay ];
+  # nixpkgs.overlays = [] ++ [ inputs.nix-xilinx.overlay ];
 }
