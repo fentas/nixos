@@ -8,7 +8,7 @@
 }:
 {
   config = { 
-    /*home-manager = {
+    home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
 
@@ -26,7 +26,7 @@
           ];
         })
         (config.my-nixos.users);
-    };*/
+    };
 
     users.users = builtins.mapAttrs (
       name: user:

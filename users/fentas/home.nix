@@ -9,7 +9,6 @@
     desktops.hyprland.enable = true;
 
     bundles = {
-      general.enable = true;
       desktopitems.enable = true;
     };
 

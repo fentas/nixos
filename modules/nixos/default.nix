@@ -1,4 +1,4 @@
-{ config, lib, mylib, ... }:
+{ inputs, config, lib, mylib, ... }:
 {
   options.my-nixos.users = lib.mkOption {
     type = lib.types.attrsOf (lib.types.submodule {
@@ -16,7 +16,9 @@
     default = {};
   };
 
-  imports = []
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ]
     ++ (mylib.extendModules { dir = ./features; })
     ++ (mylib.extendModules { dir = ./desktops; })
     ++ (mylib.extendModules { dir = ./hardware; })
