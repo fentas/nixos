@@ -15,6 +15,8 @@
 
 My personal NixOS and Home Manager configurations, managed declaratively using [Nix Flakes](https://nixos.wiki/wiki/Flakes). This repository contains the system setup for my hosts and the user environment configuration for my user account.
 
+&nbsp;
+
 ### ✨ Features
 
 * Declarative system configuration with NixOS.
@@ -23,6 +25,8 @@ My personal NixOS and Home Manager configurations, managed declaratively using [
 * Currently configured hosts: `dell-9510`.
 * Configured desktop environments (selectable via modules): Plasma 6, Hyprland.
 * User-specific configurations for `fentas`.
+
+&nbsp;
 
 ### 🏛️ Modularity and Structure
 
@@ -61,6 +65,8 @@ This configuration emphasizes a modular structure to promote reusability, mainta
 * **Easy Toggling:** Features, package sets, and even entire categories can be enabled/disabled via simple boolean flags in host/user configurations.
 * **Scalability:** Adding new hosts, users, or features typically involves adding new files/directories following the established patterns, rather than making large changes to core files.
 * **Maintainability:** Configuration for specific tools or features is localized within dedicated module files.
+
+&nbsp;
 
 ### 🔒 Secrets Management
 
