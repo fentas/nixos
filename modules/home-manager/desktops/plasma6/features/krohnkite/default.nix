@@ -3,13 +3,13 @@
 {
 
   # Install Krohnkite package
-  home.packages = [ pkgs.kwin-scripts-krohnkite ];
+  home.packages = [ pkgs.kdePackages.krohnkite ];
 
   # Manage Krohnkite's configuration file
   # 1. COPY your existing ~/.config/krohnkiterc file into your Nix repo
   #    (e.g., save it as ./dotfiles/kde/krohnkiterc relative to this .nix file)
   # 2. Tell Home Manager to link it into place:
-  xdg.configFile."krohnkiterc".source = ./dotfiles/kde/krohnkiterc; # Adjust source path as needed
+  # xdg.configFile."krohnkiterc".source = ./dotfiles/kde/krohnkiterc; # Adjust source path as needed
 
   # Manage KWin's configuration to enable the script
   # 1. COPY your existing ~/.config/kwinrc file into your Nix repo
@@ -18,7 +18,7 @@
   #    [Plugins]
   #    krohnkiteEnabled=true
   # 3. Tell Home Manager to link it:
-  xdg.configFile."kwinrc".source = ./dotfiles/kde/kwinrc; # Adjust source path
+  # xdg.configFile."kwinrc".source = ./dotfiles/kde/kwinrc; # Adjust source path
 
   # NOTE: Managing kwinrc this way overwrites the whole file.
   # More advanced merging is possible using home.file.<path>.text and reading/templating,

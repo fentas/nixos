@@ -3,7 +3,7 @@
   home.packages = [
     pkgs.fzf
   ];
-  programs.bash.enable = true;
+  # programs.bash.enable = true;
   programs.bash.initExtra = ''
     # Source the init script from the input's path in the Nix store
     if [ -f "${inputs.enhancd}/init.sh" ]; then

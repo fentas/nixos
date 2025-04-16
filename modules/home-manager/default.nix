@@ -8,6 +8,7 @@
 
   programs.home-manager.enable = lib.mkDefault true;
   home.sessionVariables = {
-    FLAKE = "${config.home.homeDirectory}/nixos";
+    # ${config.home.homeDirectory}
+    FLAKE = "/etc/nixos";
   };
 }

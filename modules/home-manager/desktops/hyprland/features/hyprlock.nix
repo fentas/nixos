@@ -1,4 +1,4 @@
-{ ... }:
+{ self, ... }:
 {
   programs.hyprlock = {
     enable = true;
@@ -68,7 +68,7 @@
       image = [
         {
           monitor = "";
-          path = "${../../../../users/fentas/profile.jpeg}";
+          path = "${self + /users/fentas/profile.jpeg}";
           size = 75;
           border_size = 2;
           border_color = "rgb(77, 89, 96)";
