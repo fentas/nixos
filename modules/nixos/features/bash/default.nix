@@ -1,6 +1,6 @@
 { pkgs, lib, ...}:
 {
-  programs.bash = {
-    enable = lib.mkDefault true;
-  };
+  # programs.bash = {
+  #   enable = lib.mkDefault true;
+  # };
 }
