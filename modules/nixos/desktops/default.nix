@@ -17,8 +17,10 @@
 
   services.flatpak.enable = true;
 
-  myNixOS = {
-    sddm.enable = lib.mkDefault true;
-    pipewire.enable = lib.mkDefault true;
+  my-nixos = {
+    features = {
+      sddm.enable = lib.mkDefault true;
+      pipewire.enable = lib.mkDefault true;
+    };
   };
 }

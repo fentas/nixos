@@ -25,7 +25,7 @@
             outputs.homeManagerModules.default
           ];
         })
-        (config.myNixOS.users);
+        (config.my-nixos.users);
     };*/
 
     users.users = builtins.mapAttrs (
@@ -37,6 +37,6 @@
           extraGroups = ["networkmanager" "wheel" "libvirtd"];
         }
         // user.userSettings
-    ) (config.myNixOS.users);
+    ) (config.my-nixos.users);
   };
 }

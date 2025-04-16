@@ -82,57 +82,73 @@ in rec {
         else (eval.config or evalNoImports);
     };
 
+
     extendModules = {
-      dir,                # Directory to scan (e.g., ./features)
-      root ? ["myNixOS"], # Base path for options (e.g., ["myNixOS"] or ["myHomeManager"])
-      prefix ? [],        # Sub-path within root (e.g., [] or ["pkgs"])
-      default ? false     # Default for the .enable flag
+      dir,            # Directory path value (e.g., ./system relative to caller)
+      default ? false # Default value for the individual .enable flags
     }:
-      let
-        enableModulePath = root ++ prefix ++ ["enabled"];
-        processModuleFile = f: 
+    let
+      # flake base path
+      selfPathStr = builtins.toString inputs.self;
+      dirPathStr = builtins.toString dir;
+      modulesBasePathStr = selfPathStr + "/modules/";
+
+      # e.g., ["my-nixos", "system"] or ["my-home-manager", "features"]
+      optionPrefixList = 
+        if lib.strings.hasPrefix modulesBasePathStr dirPathStr then
           let
-            name = fileNameOf f;
-            # e.g., ["myHomeManager", "pkgs", "git", "enable"]
-            enableOptionPath = root ++ prefix ++ [name] ++ ["enable"];
-            descString = lib.concatStringsSep "." (root ++ prefix ++ [name]);
+            # e.g., "nixos/system" or "home-manager/features"
+            moduleRelativePath = lib.strings.removePrefix modulesBasePathStr dirPathStr;
+            # e.g., ["nixos", "system"] or ["home-manager", "features"]
+            pathComponents = lib.filter (x: x != "") (lib.splitString "/" moduleRelativePath);
 
-            # Define the specific extensions for this scheme
-            moduleExtensions = {
-              extraOptions = lib.attrsets.setAttrByPath
-                enableOptionPath
-                (lib.mkOption {
-                  type = lib.types.bool;
-                  default = default;
-                  description = "enable the ${descString} configuration";
-                });
+            # Map directory name to option name root
+            rawRootDir = lib.elemAt pathComponents 0; # "nixos" or "home-manager"
+            subPath = lib.lists.drop 1 pathComponents; # e.g., ["system"] or ["features"]
+            optionRoot = "my-" + rawRootDir;
+          in [optionRoot] ++ subPath
+        else
+          throw "extendModules: 'dir' (${dirPathStr}) does not seem to be under '${modulesBasePathStr}'";
 
-              configExtension = moduleSpecificConfig: cconfig:
-                lib.mkIf 
-                  (
-                    ( lib.attrByPath enableModulePath false cconfig ) &&
-                    ( lib.attrByPath enableOptionPath false cconfig )
-                  )
-                  moduleSpecificConfig;
-            };
-          in
-            # Use the core 'extendModule' to apply these extensions to the file path 'f'
-            extendModule (moduleExtensions // { path = f; }); # Returns the final module function
-      in 
-        # Return list of processed module functions
-        map processModuleFile (filesIn dir);
+      # f is the path to the actual .nix file, e.g. /nix/store/.../modules/nixos/system/users.nix
+      processModuleFile = f: 
+        let
+          name = fileNameOf f;
+          # e.g., ["my-nixos", "system", "users", "enable"]
+          enableOptionPath = optionPrefixList ++ [name] ++ ["enable"];
+          descString = builtins.trace "path ${toString enableOptionPath}" (lib.concatStringsSep "." (optionPrefixList ++ [name]));
 
-  addGroups = config: groups: lib.mapAttrs' (userName: userDefFromMyNixOS: {
-    # userDefFromMyNixOS is the value from config.myNixOS.users.${userName}
+          moduleExtensions = {
+            extraOptions = lib.attrsets.setAttrByPath enableOptionPath (lib.mkOption {
+              type = lib.types.bool;
+              description = "Enable the ${descString} configuration module";
+              inherit default;
+            });
+
+            configExtension = moduleSpecificConfig: config: (
+              lib.mkIf
+                ( lib.attrByPath enableOptionPath false config )
+                moduleSpecificConfig
+            );
+          };
+        in
+          # Pass extensions to extendModule helper
+          extendModule (moduleExtensions // { path = f; });
+    in
+      # Map over files found in the dir
+      map processModuleFile (filesIn dir);
+
+  addGroups = config: groups: lib.mapAttrs' (userName: userDefFrommy-nixos: {
+    # userDefFrommy-nixos is the value from config.my-nixos.users.${userName}
     name = userName; # The user to apply config to
     value = {
       # Define ONLY the extraGroups attribute to be merged
       extraGroups = groups;
-      # You could add an mkIf here based on userDefFromMyNixOS if needed, e.g.:
-      # extraGroups = lib.mkIf (userDefFromMyNixOS.userSettings.isNormalUser or true) [ "keyd" ];
+      # You could add an mkIf here based on userDefFrommy-nixos if needed, e.g.:
+      # extraGroups = lib.mkIf (userDefFrommy-nixos.userSettings.isNormalUser or true) [ "keyd" ];
       # But often simpler to just add it and rely on standard user definition elsewhere.
     };
-  }) config.myNixOS.users;
+  }) config.my-nixos.users;
 
   # forAllSystems = pkgs:
   #   inputs.nixpkgs.lib.genAttrs [

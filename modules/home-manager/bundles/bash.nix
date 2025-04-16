@@ -1,6 +1,8 @@
 { ... }:
 {
-  myHomeManager = {
-    enhanced.enable = true;
+  my-home-manager = {
+    features = {
+      enhanced.enable = true;
+    };
   };
 }

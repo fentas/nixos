@@ -7,13 +7,19 @@
 
   networking.hostName = "io";
 
-  myNixOS = {
-    nvidiagpu.enable = true;
+  my-nixos = {
     desktops.hyprland.enable = true;
 
-    qemu.enable = true;
-    bash.enable = true;
-    nvchad.enable = true;
+    hardware = {
+      gpu.nvidia.enable = true;
+    };
+
+    features = {
+      qemu.enable = true;
+      bash.enable = true;
+      nvchad.enable = true;
+      keyd.enable = true;
+    };
 
     pkgs = {
       core.enable = true;

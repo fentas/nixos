@@ -5,16 +5,21 @@
   programs.git.userName = "fentas";
   programs.git.userEmail = "jan.guth@gmail.com";
 
-  myHomeManager = {
-    bundles.general.enable = true;
-    bundles.desktopitems.enable = true;
-    bundles.hyprland.enable = true;
+  my-home-manager = {
+    desktops.hyprland.enable = true;
 
-    enhanced.enable = true;
-    alacritty.enable = true;
-    nixvim.enable = true;
-    fastfetch.enable = true;
-    zellij.enable = true;
+    bundles = {
+      general.enable = true;
+      desktopitems.enable = true;
+    };
+
+    features = {  
+      enhanced.enable = true;
+      alacritty.enable = true;
+      nixvim.enable = true;
+      fastfetch.enable = true;
+      zellij.enable = true;
+    };
   };
 
   home = {

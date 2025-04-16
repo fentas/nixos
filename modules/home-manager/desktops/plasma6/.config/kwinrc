@@ -1,0 +1,84 @@
+[Activities][LastVirtualDesktop]
+95fc2a4e-5da1-4929-b113-50adffc0344e=4269ea68-934c-4ed8-a86b-56f255b5bb69
+
+[Desktops]
+Id_1=1befe0b3-f16e-47f3-81e7-ec8f6f0faaa0
+Id_2=bfc6d238-7950-4489-af24-c7ef154e305c
+Id_3=4269ea68-934c-4ed8-a86b-56f255b5bb69
+Id_4=67136115-e516-49f7-8e7c-78254a756615
+Id_5=1fac108e-4f92-47d2-b833-d7a97cb856ff
+Id_6=f65bf77a-8b89-430f-a4cd-6dd0fe52420d
+Id_7=82c25da9-aa1d-4690-9ac3-bca3f657ccb4
+Id_8=39eaeb1a-4d11-4693-9b2c-2ac0e4b37c53
+Id_9=23b36cfb-6928-4a96-8f3d-b73836824e4b
+Name_3=Desktop 4
+Name_4=Desktop 5
+Name_5=Desktop 6
+Name_6=Desktop 7
+Name_7=Desktop 8
+Name_8=Desktop 9
+Name_9=Desktop 10
+Number=9
+Rows=4
+
+[Effect-windowview]
+BorderActivateAll=5
+TouchBorderActivateAll=0
+
+[NightColor]
+Active=true
+NightTemperature=2500
+
+[Plugins]
+dimscreenEnabled=true
+fadedesktopEnabled=true
+krohnkiteEnabled=true
+slideEnabled=false
+
+[Script-desktopchangeosd]
+TextOnly=true
+
+[Script-krohnkite]
+noTileBorder=true
+screenGapBottom=8
+screenGapLeft=36
+screenGapRight=8
+screenGapTop=8
+tileLayoutGap=8
+
+[TabBox]
+LayoutName=compact
+
+[Tiling]
+padding=4
+
+[Tiling][0f6b1026-a045-5ed8-a31b-11ae62894a6c]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][31f5d140-1c55-51d4-9365-d700b23c7b81]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][3d75fb14-37e9-5275-ae9d-e5d0d0231d6b]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][940a61d4-fe55-5ebc-b55d-0ccbd43dbb85]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][998bc723-a87e-5844-ba8f-352997f4e532]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][a2ef6e88-397d-512b-935c-d33f886d61fa]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][b389f9be-e19d-52e6-bdf9-b6b421e72420]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[TouchEdges]
+Left=LockScreen
+
+[Xwayland]
+Scale=1.75
+
+[org.kde.kdecoration2]
+BorderSize=None
+BorderSizeAuto=false
