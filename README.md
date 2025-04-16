@@ -72,11 +72,14 @@ This configuration emphasizes a modular structure to promote reusability, mainta
 
 Secrets (API keys, passwords etc.) are not currently managed within this repository. Integration with tools like [agenix](https://github.com/ryantm/agenix) or [sops-nix](https://github.com/Mic92/sops-nix) would be required for declarative secret management.
 
+&nbsp;
+
 ### ❤️ Gratitude
 
 * Base structure forked from [Sw3d15h-F1s4/nixos](https://github.com/Sw3d15h-F1s4/nixos).
 * From `Sw3d15h-F1s4` itself: `Vimjoyer`, `EmergentMind`, `Wil Taylor`
 
-### 📄 License
+&nbsp;
 
-This configuration is licensed under the MIT License.
+<p align="center">Copyright &copy; 2025-present <a href="https://github.com/fentas" target="_blank">Jan Guth</a>
+<p align="center"><a href="https://github.com/fentas/nixos/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=fentas&message=MIT&logoColor=d9e0ee&colorA=302d41&colorB=b7bdf8"/></a></p>
