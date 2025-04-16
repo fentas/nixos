@@ -15,7 +15,7 @@
 
 My personal NixOS and Home Manager configurations, managed declaratively using [Nix Flakes](https://nixos.wiki/wiki/Flakes). This repository contains the system setup for my hosts and the user environment configuration for my user account.
 
-## ✨ Features
+### ✨ Features
 
 * Declarative system configuration with NixOS.
 * Declarative user environment with [Home Manager](https://github.com/nix-community/home-manager).
@@ -24,7 +24,7 @@ My personal NixOS and Home Manager configurations, managed declaratively using [
 * Configured desktop environments (selectable via modules): Plasma 6, Hyprland.
 * User-specific configurations for `fentas`.
 
-## 🏛️ Modularity and Structure
+### 🏛️ Modularity and Structure
 
 This configuration emphasizes a modular structure to promote reusability, maintainability, and easy customization across different machines and user setups. Key components include:
 
@@ -62,14 +62,15 @@ This configuration emphasizes a modular structure to promote reusability, mainta
 * **Scalability:** Adding new hosts, users, or features typically involves adding new files/directories following the established patterns, rather than making large changes to core files.
 * **Maintainability:** Configuration for specific tools or features is localized within dedicated module files.
 
-## 🔒 Secrets Management
+### 🔒 Secrets Management
 
 Secrets (API keys, passwords etc.) are not currently managed within this repository. Integration with tools like [agenix](https://github.com/ryantm/agenix) or [sops-nix](https://github.com/Mic92/sops-nix) would be required for declarative secret management.
 
-## 🙏 Acknowledgements
+### ❤️ Gratitude
 
 * Base structure forked from [Sw3d15h-F1s4/nixos](https://github.com/Sw3d15h-F1s4/nixos).
+* From `Sw3d15h-F1s4` itself: `Vimjoyer`, `EmergentMind`, `Wil Taylor`
 
-## 📄 License
+### 📄 License
 
 This configuration is licensed under the MIT License.
