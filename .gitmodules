@@ -1,0 +1,3 @@
+[submodule "nixos-secrets"]
+	path = nixos-secrets
+	url = git@github.com:fentas/nixos-secrets.git
