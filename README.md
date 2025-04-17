@@ -32,31 +32,19 @@ My personal NixOS and Home Manager configurations, managed declaratively using [
 
 This configuration emphasizes a modular structure to promote reusability, maintainability, and easy customization across different machines and user setups. Key components include:
 
-1.  **Flakes:** The entire configuration is managed as a Nix Flake (`flake.nix`).
-    * **Dependency Management:** Inputs (like `nixpkgs`, `home-manager`, `nixvim`) are explicitly defined and pinned in `flake.lock` for reproducible environments.
-    * **Defined Outputs:** The flake exposes standard outputs like `nixosConfigurations` (for building specific NixOS systems) and `homeConfigurations` (for building standalone Home Manager environments), as well as custom outputs like `nixosModules.default` and `homeManagerModules.default` which represent shared module sets.
-
-2.  **Host-Specific Configuration (`hosts/`):**
+1.  **Host-Specific Configuration (`hosts/`):**
     * Each subdirectory (e.g., `hosts/dell-9510/`) represents a unique machine configuration.
-    * The `configuration.nix` file here contains settings *specific* to that hardware or system role (hostname, networking details, hardware drivers, bootloader settings).
-    * Crucially, it **imports the shared NixOS modules** (`outputs.nixosModules.default`) and acts as the place where you **enable or disable shared features/packages/desktops** for that specific host by setting flags (e.g., `config."my-nixos".features.keyd.enable = true;`).
-    * It also integrates Home Manager for users present on that host.
 
-3.  **User-Specific Configuration (`users/`):**
+2.  **User-Specific Configuration (`users/`):**
     * Each subdirectory (e.g., `users/fentas/`) contains the main `home.nix` entry point for a specific user's Home Manager configuration.
-    * This `home.nix` **imports the shared Home Manager modules** (`outputs.homeManagerModules.default`) and **enables or disables shared user-level features/bundles** by setting flags (e.g., `config."my-home-manager".features.starship.enable = true;`).
-    * It also contains user-specific settings that aren't intended to be shared (e.g., `home.username`, `home.stateVersion`).
 
-4.  **Shared Modules (`modules/`):** This is the core of reusability.
-    * **System vs. User Separation:** `my-nixos/` contains modules applied system-wide via NixOS, while `my-home-manager/` contains modules applied only to the user's environment via Home Manager.
-    * **Categorization:** Within each (`my-nixos`, `my-home-manager`), modules are further grouped (e.g., `system`, `features`, `pkgs`, `desktops`, `bundles`). This makes related configurations easy to find.
-    * **Individual Modules:** Each `.nix` file within a category ideally represents a single piece of functionality or configuration (e.g., `keyd.nix`, `starship/default.nix`).
-    * **Dynamic Loading (`extendModules`):** The custom `mylib.extendModules` function processes these category directories. For each module file found:
-        * It automatically defines a corresponding `.enable` option (e.g., `options."my-nixos".features."keyd".enable`).
-        * It wraps the module's configuration so it's only included if that specific `.enable` flag is set to `true` in the host/user config.
+3.  **Shared Modules (`modules/`):** This is the core of reusability.
+    * **Dynamic Loading (`extendModules`):** The custom `mylib.extendModules` function processes these category directories.
 
-5.  **Custom Library (`mylib/`):**
+4.  **Custom Library (`mylib/`):**
     * Centralizes reusable Nix functions (like `extendModules`, `addGroups`, `filesIn`, `fileNameOf`) used throughout the configuration.
+
+**Benefits of this Structure:**
 
 * **Clear Separation:** Easy to distinguish between system, user, host-specific, and shared settings.
 * **High Reusability:** Shared modules and library functions minimize code duplication.
@@ -69,6 +57,8 @@ This configuration emphasizes a modular structure to promote reusability, mainta
 ### 🔒 Secrets Management
 
 This configuration uses [sops-nix](https://github.com/Mic92/sops-nix) to manage secrets declaratively and securely.
+
+**Key Aspects:**
 
 * **Tooling:** Secrets are encrypted using [Mozilla SOPS](https://github.com/mozilla/sops) with the [age](https://github.com/FiloSottile/age) backend (leveraging password-protected SSH keys for decryption).
 * **Storage:** The **encrypted** secrets file(s) (e.g., `nixos.enc.yaml`) are stored in a **separate private Git repository**, which is included here as a Git submodule located at `./nixos-secrets/`. **Plaintext secrets are never committed to either repository.**
