@@ -13,7 +13,7 @@
 
 &nbsp;
 
-My personal NixOS and Home Manager configurations, managed declaratively using [Nix Flakes](https://nixos.wiki/wiki/Flakes). This repository contains the system setup for my hosts and the user environment configuration for my user account.
+My personal NixOS and Home Manager configurations, managed declaratively using [Nix Flakes](https://nixos.wiki/wiki/Flakes). This repository contains the system setup for my hosts and the user environments.
 
 &nbsp;
 
@@ -58,8 +58,6 @@ This configuration emphasizes a modular structure to promote reusability, mainta
 5.  **Custom Library (`mylib/`):**
     * Centralizes reusable Nix functions (like `extendModules`, `addGroups`, `filesIn`, `fileNameOf`) used throughout the configuration.
 
-**Benefits of this Structure:**
-
 * **Clear Separation:** Easy to distinguish between system, user, host-specific, and shared settings.
 * **High Reusability:** Shared modules and library functions minimize code duplication.
 * **Easy Toggling:** Features, package sets, and even entire categories can be enabled/disabled via simple boolean flags in host/user configurations.
@@ -70,7 +68,15 @@ This configuration emphasizes a modular structure to promote reusability, mainta
 
 ### 🔒 Secrets Management
 
-Secrets (API keys, passwords etc.) are not currently managed within this repository. Integration with tools like [agenix](https://github.com/ryantm/agenix) or [sops-nix](https://github.com/Mic92/sops-nix) would be required for declarative secret management.
+This configuration uses [sops-nix](https://github.com/Mic92/sops-nix) to manage secrets declaratively and securely.
+
+* **Tooling:** Secrets are encrypted using [Mozilla SOPS](https://github.com/mozilla/sops) with the [age](https://github.com/FiloSottile/age) backend (leveraging password-protected SSH keys for decryption).
+* **Storage:** The **encrypted** secrets file(s) (e.g., `nixos.enc.yaml`) are stored in a **separate private Git repository**, which is included here as a Git submodule located at `./nixos-secrets/`. **Plaintext secrets are never committed to either repository.**
+* **Encryption Keys:** Secrets are encrypted using the `age` public key(s) derived from specific SSH public keys (defined in `nixos-secrets/.sops.yaml`). These typically correspond to the target NixOS host(s) and/or user(s) who need decryption access.
+* **Decryption:** `sops-nix` handles decryption automatically on the target machine during system activation (`nixos-rebuild switch`) or Home Manager activation (`home-manager switch`). This requires:
+    * The corresponding **private SSH key** (the one used to generate the `age` public key during encryption) must be present on the target machine at the path(s) specified in the `sops.age.sshKeyPaths` option within the NixOS or Home Manager configuration.
+    * For **password-protected** SSH keys, an `ssh-agent` must typically be running with the key added (`ssh-add /path/to/private/key`) so `sops` can use it for decryption without manual intervention during the build/activation.
+* **Configuration:** Secrets are defined within the NixOS (`hosts/.../configuration.nix`) or Home Manager (`users/.../home.nix`) configurations.
 
 &nbsp;
 

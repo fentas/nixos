@@ -2,6 +2,8 @@
   description = "fentas nixos";
 
   inputs = {
+    # For nixos-secrets private git repo
+    self.submodules = true;
 
     # Main package source. Stick to unstable for a "rolling release" style.
     nixpkgs = {
@@ -11,6 +13,12 @@
     # Stable packages, mainly to avoid rebuilds on big packages that don't need updates.
     nixpkgs-stable = {
       url = "nixpkgs/nixos-24.05";
+    };
+
+    # NOTE: The private repo is managed via git submodule
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Home manager version. Stick to main branch to follow unstable nixpkgs.

@@ -21,6 +21,7 @@ in rec {
       modules = [
         config
         outputs.nixosModules.default
+        inputs.sops-nix.nixosModules.sops
       ];
     };
 
@@ -35,6 +36,7 @@ in rec {
       modules = [
         config
         outputs.homeManagerModules.default
+        inputs.sops-nix.nixosModules.sops
       ];
     };
 

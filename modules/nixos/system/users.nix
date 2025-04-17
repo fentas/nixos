@@ -30,13 +30,14 @@
 
     users.users = builtins.mapAttrs (
       name: user:
-        {
-          isNormalUser = true;
-          initialPassword = "12345";
-          description = "";
-          extraGroups = ["networkmanager" "wheel" "libvirtd"];
-        }
-        // user.userSettings
+      let
+        hashedPasswordFile = config.sops.secrets."users.${name}.password".path;
+      in {
+        inherit hashedPasswordFile;
+        isNormalUser = true;
+        description = "";
+        extraGroups = ["networkmanager" "wheel" "libvirtd"];
+      } // user.userSettings
     ) (config.my-nixos.users);
   };
 }

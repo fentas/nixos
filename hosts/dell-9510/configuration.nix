@@ -7,6 +7,21 @@
 
   networking.hostName = "io";
 
+  sops = {
+    # enable = true;
+    age.sshKeyPaths = [
+      "/etc/ssh/nixos-secrets"
+    ];
+    
+    defaultSopsFile = "${self}/nixos-secrets/nixos.enc.yaml";
+    secrets."users.fentas.password" = {
+      key = "users.fentas.password";
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
+  };
+
   my-nixos = {
     desktops.hyprland.enable = true;
 

@@ -6,6 +6,14 @@
     dnsutils
     curl
 
+    # encryption
+    gnupg
+    age
+    openssh
+    openssl
+    sops
+    whois
+
     # hardware
     fwupd
 
