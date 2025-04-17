@@ -32,6 +32,41 @@ bash
  echo -n "password" | mkpasswd -s | xclip -selection clipboard
 ```
 
+## Changing the Remote Repository URL
+
+This secrets repository is typically included as a Git submodule in the main NixOS configuration repository. If you move this secrets repository to a new Git URL, you need to update the submodule configuration within your **main NixOS repository** (e.g., `fentas/nixos`) for it to pull from the correct location.
+
+Follow these steps **in the root directory of your main NixOS configuration repository**:
+
+1.  **Update `.gitmodules`:**
+    * Open the `.gitmodules` file located in the root of your main NixOS repository.
+    * Find the section corresponding to this secrets submodule, which will look something like:
+      ```ini
+      [submodule "nixos-secrets"]
+          path = nixos-secrets
+          url = git@your-git-host:your-username/nixos-secrets.git
+      ```
+
+2.  **Synchronize Git Configuration:** Run this command to update the submodule's internal Git configuration to match the new URL in `.gitmodules`:
+    ```bash
+    git submodule sync --recursive
+    ```
+
+3.  **Update Submodule Content (Optional but Recommended):** Ensure the submodule content is fetched from the new location (this also verifies your access to the new URL):
+    ```bash
+    git submodule update --init --recursive
+    ```
+    *(Make sure you have appropriate credentials/SSH keys set up if the new URL is also private).*
+
+4.  **Commit the Change:** Add the modified `.gitmodules` file and commit it in your main NixOS repository:
+    ```bash
+    git add .gitmodules
+    git commit -m "Update nixos-secrets submodule URL to new location"
+    git push
+    ```
+
+After these steps, your main NixOS repository will correctly point to and pull updates from the new location of this secrets repository.
+
 ## Managing Secrets
 
 You will need the `sops` and `age` (for `ssh-to-age`) command-line tools. You can get them via Nix: `nix-shell -p sops age`
