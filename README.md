@@ -32,17 +32,19 @@ My personal NixOS and Home Manager configurations, managed declaratively using [
 
 This configuration emphasizes a modular structure to promote reusability, maintainability, and easy customization across different machines and user setups. Key components include:
 
-1.  **Host-Specific Configuration (`hosts/`):**
-    * Each subdirectory (e.g., `hosts/dell-9510/`) represents a unique machine configuration.
+💻 **Host-Specific Configuration (`hosts/`):**
+   * Each subdirectory (e.g., `hosts/dell-9510/`) represents a unique machine configuration.
 
-2.  **User-Specific Configuration (`users/`):**
-    * Each subdirectory (e.g., `users/fentas/`) contains the main `home.nix` entry point for a specific user's Home Manager configuration.
+👤 **User-Specific Configuration (`users/`):**
+   * Each subdirectory (e.g., `users/fentas/`) contains the main `home.nix` entry point for a specific user's Home Manager configuration.
 
-3.  **Shared Modules (`modules/`):** This is the core of reusability.
-    * **Dynamic Loading (`extendModules`):** The custom `mylib.extendModules` function processes these category directories.
+🧩 **Shared Modules (`modules/`):** This is the core of reusability.
+   * **Dynamic Loading (`extendModules`):** The custom `mylib.extendModules` function processes these category directories.
 
-4.  **Custom Library (`mylib/`):**
-    * Centralizes reusable Nix functions (like `extendModules`, `addGroups`, `filesIn`, `fileNameOf`) used throughout the configuration.
+🛠️ **Custom Library (`mylib/`):**
+   * Centralizes reusable Nix functions (like `extendModules`, `addGroups`, `filesIn`, `fileNameOf`) used throughout the configuration.
+
+&nbsp;
 
 **Benefits of this Structure:**
 
@@ -57,6 +59,8 @@ This configuration emphasizes a modular structure to promote reusability, mainta
 ### 🔒 Secrets Management
 
 This configuration uses [sops-nix](https://github.com/Mic92/sops-nix) to manage secrets declaratively and securely.
+
+&nbsp;
 
 **Key Aspects:**
 
