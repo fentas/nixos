@@ -1,0 +1,4 @@
+users:
+  gandalf:
+    # echo -n 'you shall not pass!' | mkpasswd -s | xclip -selection clipboard
+    password: "$y$j9T$JmtoNQZ2/ycolWe3F2lTX.$hMYoG2zfkt6Jjs/IFrk9XvZEKHAdfgT37za7wHB.ID."
