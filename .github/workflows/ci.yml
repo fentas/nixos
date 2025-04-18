@@ -32,7 +32,8 @@ jobs:
       - name: Install SOPS & age
         run: |
           echo "::info:: Nix version: $(nix --version)"
-          nix-env -iA nixpkgs.sops nixpkgs.age
+          nix profile install nixpkgs#sops nixpkgs#age
+          # nix-env -iA nixpkgs.sops nixpkgs.age
 
       - name: Generate Decryptable Dummy Secrets File for CI
         env:
