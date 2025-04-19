@@ -31,7 +31,7 @@ jobs:
 
       - name: Install SOPS & age
         run: |
-          echo "::info:: Nix version: $(nix --version)"
+          echo "::debug:: $(nix --version)"
           nix profile install nixpkgs#sops nixpkgs#age
           # nix-env -iA nixpkgs.sops nixpkgs.age
 
