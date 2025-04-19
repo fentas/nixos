@@ -51,13 +51,13 @@ jobs:
       - name: Build NixOS Configuration
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_CI }}
-        run: nix flake check --show-trace
+        run: nix flake check '.?submodules=0' --show-trace
 
       - name: Build Home Manager Configuration
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_CI }}
         run: nix build \
-            .#nixosConfigurations.dell-9510.config.system.build.toplevel \
+            .?submodules=0#nixosConfigurations.dell-9510.config.system.build.toplevel \
             --show-trace --print-build-logs
 
   update:

@@ -3,8 +3,8 @@
 
   inputs = {
     # For nixos-secrets private git repo
-    self.submodules = !(builtins.getEnv "CI" == "true");
-
+    self.submodules = true;
+    
     # Main package source. Stick to unstable for a "rolling release" style.
     nixpkgs = {
       url = "nixpkgs/nixos-unstable";
