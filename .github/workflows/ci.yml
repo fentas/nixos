@@ -45,7 +45,6 @@ jobs:
 
           git submodule deinit -f --all
           rm -f .gitmodules
-          rm -rf .git/modules/* ./nixos-secrets
           
           mkdir -p ./nixos-secrets
           sops --age "${CI_AGE_PUBLIC_KEY}" --encrypt ../docs/nixos-secrets/nixos.yaml > ./nixos-secrets/nixos.enc.yaml
