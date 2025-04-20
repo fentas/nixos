@@ -49,18 +49,22 @@ jobs:
           mkdir -p ./nixos-secrets
           cd ./nixos-secrets
           sops --age "${CI_AGE_PUBLIC_KEY}" --encrypt ../docs/nixos-secrets/nixos.yaml > nixos.enc.yaml
-          cat nixos.enc.yaml
-          pwd
           
       - name: Build NixOS Configuration
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_CI }}
-        run: nix flake check --show-trace
+        run: |
+          pwd
+          cat ./nixos-secrets/nixos.enc.yaml
+          sops --decrypt ./nixos-secrets/nixos.enc.yaml
+          
+          nix flake check --show-trace
 
       - name: Build Home Manager Configuration
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_CI }}
-        run: nix build \
+        run: |
+          nix build \
             .#nixosConfigurations.dell-9510.config.system.build.toplevel \
             --show-trace --print-build-logs
 
