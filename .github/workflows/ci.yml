@@ -57,7 +57,7 @@ jobs:
           pwd
           cat ./nixos-secrets/nixos.enc.yaml
           sops --decrypt ./nixos-secrets/nixos.enc.yaml
-          
+          nix-store --add ./nixos-secrets/nixos.enc.yaml
           nix flake check --show-trace
 
       - name: Build Home Manager Configuration
