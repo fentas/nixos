@@ -54,6 +54,7 @@ jobs:
         # env:
         #   SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_CI }}
         run: |
+          set
           # pwd
           # cat ./nixos-secrets/nixos.enc.yaml
           # sops --decrypt ./nixos-secrets/nixos.enc.yaml
