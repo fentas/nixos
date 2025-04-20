@@ -48,7 +48,7 @@ jobs:
           
           mkdir -p ./nixos-secrets
           sops --age "${CI_AGE_PUBLIC_KEY}" --encrypt ../docs/nixos-secrets/nixos.yaml > ./nixos-secrets/nixos.enc.yaml
-          nix-store --add ./nixos-secrets/nixos.enc.yaml
+          # nix-store --add ./nixos-secrets/nixos.enc.yaml
           
       - name: Build NixOS Configuration
         env:
