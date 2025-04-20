@@ -45,6 +45,7 @@ jobs:
 
           git submodule deinit -f --all
           rm -f .gitmodules
+          rm -rf .git/modules/* ./nixos-secrets
           
           mkdir -p ./nixos-secrets
           cd ./nixos-secrets
