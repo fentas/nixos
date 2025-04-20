@@ -49,6 +49,7 @@ jobs:
           mkdir -p ./nixos-secrets
           cd ./nixos-secrets
           sops --age "${CI_AGE_PUBLIC_KEY}" --encrypt ../docs/nixos-secrets/nixos.yaml > nixos.enc.yaml
+          git add .
           
       - name: Build NixOS Configuration
         env:
@@ -57,7 +58,7 @@ jobs:
           pwd
           cat ./nixos-secrets/nixos.enc.yaml
           sops --decrypt ./nixos-secrets/nixos.enc.yaml
-          
+
           nix flake check --show-trace
 
       - name: Build Home Manager Configuration
