@@ -45,10 +45,13 @@ jobs:
 
           git submodule deinit -f --all
           rm -f .gitmodules
+          pwd
           mkdir -p ./nixos-secrets
           cd ./nixos-secrets
-          
           sops --age "${CI_AGE_PUBLIC_KEY}" --encrypt ../docs/nixos-secrets/nixos.yaml > nixos.enc.yaml
+          cat nixos.enc.yaml | \
+            # Decrypt the secrets file using the CI_PRIVATE_KEY
+            sops --decrypt --age "${SOPS_AGE_KEY_CI}"
           
       - name: Build NixOS Configuration
         env:
