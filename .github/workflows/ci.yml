@@ -35,20 +35,20 @@ jobs:
           nix profile install nixpkgs#sops nixpkgs#age
           # nix-env -iA nixpkgs.sops nixpkgs.age
 
-      - name: Generate Decryptable Dummy Secrets File for CI
-        env:
-          SOPS_AGE_KEY_CI: ${{ secrets.SOPS_AGE_KEY_CI }}
-        run: |
-          # Derive the corresponding CI PUBLIC key from the PRIVATE key secret
-          CI_AGE_PUBLIC_KEY=$(echo -n "${SOPS_AGE_KEY_CI}" | age-keygen -y)
-          echo "Using CI Age Public Key: $CI_AGE_PUBLIC_KEY"
+      # - name: Generate Decryptable Dummy Secrets File for CI
+      #   env:
+      #     SOPS_AGE_KEY_CI: ${{ secrets.SOPS_AGE_KEY_CI }}
+      #   run: |
+      #     # Derive the corresponding CI PUBLIC key from the PRIVATE key secret
+      #     CI_AGE_PUBLIC_KEY=$(echo -n "${SOPS_AGE_KEY_CI}" | age-keygen -y)
+      #     echo "Using CI Age Public Key: $CI_AGE_PUBLIC_KEY"
 
-          git submodule deinit -f --all
-          rm -f .gitmodules
+      #     # git submodule deinit -f --all
+      #     rm -rf .gitmodules .git/modules/* ./nixos-secrets
           
-          mkdir -p ./nixos-secrets
-          cd ./nixos-secrets
-          sops --age "${CI_AGE_PUBLIC_KEY}" --encrypt ../docs/nixos-secrets/nixos.yaml > nixos.enc.yaml
+      #     mkdir -p ./nixos-secrets
+      #     cd ./nixos-secrets
+      #     sops --age "${CI_AGE_PUBLIC_KEY}" --encrypt ../docs/nixos-secrets/nixos.yaml > nixos.enc.yaml
           
       - name: Build NixOS Configuration
         env:

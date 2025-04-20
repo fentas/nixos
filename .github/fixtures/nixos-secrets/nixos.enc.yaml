@@ -1,0 +1,19 @@
+users:
+    fentas:
+        #ENC[AES256_GCM,data:TVCgAoY86bpx7i1lZ4yVl+9tho2dsnYvo+4J1qxSJzzqUpK/RvccUozxgP5vVlZrqUnrKlYqyBstTD0+gW0MloBXwa+2bJkONA==,iv:AuQuGg0JXRiJsog+CRkEL2GQ5E6ElvlMYCXG7KFSRsU=,tag:A99zbplXfdPxGMNbsim1iw==,type:comment]
+        password: ENC[AES256_GCM,data:4KPMJOSwCbSBtVmdUDwwm/TjFvSUQ4Y/M2SjDL0RRhCuDg9Uyv/ScnaR9t/D/TrNwjTE7DwMbi9N4Gcjv742A3qT0g4gWhn2DA==,iv:F01DcxA7idELBY3k50UimX61h3+GRZB2eqHnffgtCRc=,tag:BsbGvHMz5/y+P+sZTJCfdg==,type:str]
+sops:
+    age:
+        - recipient: age124hd27uucy2n8r64c8s2jd9e3ejjvs2vzvzj3h9v4um7z89skvxs8msda4
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBHUWtkMlU2NFIyVFViSHFK
+            T0JSQW9Kb1ZaZG9PTkJ3TFJwRnphVVdreFhJCjRsOVIzSEF1NEJWZ3JsSGdCSnJT
+            MXRsaU0xZFNjMGp1QzdjM2R6enRMVmsKLS0tIHpoSG1GdFlhVmN6bHl2cVlHdlQx
+            ejYvaGtFK1pHMGN6dmljYnBiRGdxOWMKv0iHlAYvJcTf2TS3nZ3JVbLTMEKWpBcV
+            awf9W0SBfvq55ca5ak1FbYJ/5ZduF6lo5ghA2T44zFoyup05UOsMmw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-04-20T18:13:44Z"
+    mac: ENC[AES256_GCM,data:30nut5rhSVbPs+OJU5DRgkr2VQbUjPYE9mzIn17eSyLRfxlfRyw6S0URK2c8NsoxObEZjiImdYOQUlt1sVtCiR+Au5EPOerRfTawXYABiwAl/HfM3WmQWi66Kc7+fvRoCqK+IC6xL15UqzzKpF3O4ZBUa1GnaZh6ixWVbUxB77Q=,iv:eJI2bFkrpCFHXXox5nM7JMpFu8mfrYpU3l6kVRdO4dY=,tag:xrbdhEfiQuP3op5f46KBQA==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.10.1

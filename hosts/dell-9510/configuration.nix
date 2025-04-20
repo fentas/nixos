@@ -13,7 +13,10 @@
       "/etc/ssh/nixos-secrets"
     ];
     
-    defaultSopsFile = "${self}/nixos-secrets/nixos.enc.yaml";
+    defaultSopsFile = if builtins.getEnv "CI" == "true"
+      then "${self}/.github/fixtures/nixos-secrets/nixos.enc.yaml"
+      else "${self}/nixos-secrets/nixos.enc.yaml";
+
     secrets."users.fentas.password" = {
       key = "users.fentas.password";
       owner = "root";
